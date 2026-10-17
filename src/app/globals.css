@@ -416,7 +416,7 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 .grid-brands {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .card {
   background: var(--surface);
@@ -927,6 +927,11 @@ a.card:hover {
 }
 
 /* ───── Responsive ───── */
+@media (max-width: 1023px) {
+  .grid-brands {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (max-width: 960px) {
   .steps {
     grid-template-columns: repeat(2, 1fr);
@@ -955,6 +960,9 @@ a.card:hover {
   }
 }
 @media (max-width: 560px) {
+  .grid-brands {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .steps {
     grid-template-columns: 1fr;
   }
