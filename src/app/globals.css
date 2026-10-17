@@ -160,6 +160,9 @@ main {
   background: color-mix(in srgb, var(--bg) 94%, transparent);
   border-bottom: 1px solid var(--border);
 }
+:root[data-theme="light"] .header {
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+}
 .header-inner {
   display: flex;
   align-items: center;
