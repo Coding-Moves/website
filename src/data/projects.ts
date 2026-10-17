@@ -129,21 +129,21 @@ export const PROJECTS: Project[] = [
   {
     slug: "apis-and-backend",
     brand: "services",
-    name: "APIs, backend & fixes",
+    name: "APIs & backend",
     status: "available",
-    summary: "Backends, databases, integrations, and fixing or speeding up software you already have.",
+    summary: "APIs, databases and integrations that keep your app and tools working together.",
     problem:
-      "Your app is slow, breaks in strange ways, or can't talk to the other tools you use.",
-    vision: "Software that runs quietly in the background and just works.",
+      "Your app needs reliable data and a way to share it with the other tools your team uses.",
+    vision: "A dependable backend that moves the right data to the right place.",
     idea:
-      "We read the existing code first, find the real cause, and fix it in small, safe steps with notes you can keep.",
+      "We map the data and connections you need, then build a clear API and database foundation you can maintain.",
     forWho: ["Startups with a growing app", "Teams with an older codebase", "Anyone connecting two systems"],
     features: [
       "REST and GraphQL APIs",
       "Database design and migrations",
       "Login, roles and permissions",
       "Third-party integrations and webhooks",
-      "Bug fixing and performance work",
+      "Background jobs and data sync",
       "Deployment and handover docs",
     ],
     tech: ["Node.js", "PostgreSQL", "Hasura", "GraphQL"],
