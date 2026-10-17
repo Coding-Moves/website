@@ -29,7 +29,7 @@ function normalizePhone(value: string): string | null {
   return null;
 }
 
-export default function ContactFormBehavior({ formId, brandShort }: { formId: string; brandShort: string }) {
+export default function ContactFormBehavior({ formId, brandShort, queryTopics }: { formId: string; brandShort: string; queryTopics?: Record<string, string> }) {
   const subjectRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -53,6 +53,12 @@ export default function ContactFormBehavior({ formId, brandShort }: { formId: st
     let suggestedEmail = "";
     const originalNoValidate = form.noValidate;
     form.noValidate = true;
+
+    const queryTopic = new URLSearchParams(window.location.search).get("topic");
+    const selectedTopic = queryTopic && queryTopics?.[queryTopic];
+    if (selectedTopic && Array.from(topic.options).some((option) => option.value === selectedTopic)) {
+      topic.value = selectedTopic;
+    }
 
     const updateSubject = () => {
       if (!subjectRef.current) return;
@@ -191,7 +197,7 @@ export default function ContactFormBehavior({ formId, brandShort }: { formId: st
       emailFix?.removeEventListener("click", handleEmailFix);
       window.removeEventListener("pageshow", resetButton);
     };
-  }, [formId, brandShort]);
+  }, [formId, brandShort, queryTopics]);
 
   return <input ref={subjectRef} type="hidden" name="subject" defaultValue={`[${brandShort}] New message`} data-remove-prefix />;
 }

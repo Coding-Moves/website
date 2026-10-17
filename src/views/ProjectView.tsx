@@ -8,6 +8,8 @@ import { CtaBand, PlatformBadges, SampleBadge, StatusBadge } from "@/components/
 export default function ProjectView({ brand, project: p }: { brand: Brand; project: Project }) {
   const isService = p.brand === "services" && p.status === "available";
   const isPrivate = p.brand === "products" && p.platforms?.includes("private");
+  const contactPath = href(brand, "/contact/");
+  const contactHref = p.contactTopic ? `${contactPath}?topic=${encodeURIComponent(p.contactTopic)}` : contactPath;
   return (
     <BrandShell brand={brand} page="project">
       <section className="hero">
@@ -51,7 +53,7 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
                 </a>
               )}
               {isService && (
-                <Link href={href(brand, "/contact/")} className="btn btn-primary">
+                <Link href={contactHref} className="btn btn-primary">
                   Ask about this →
                 </Link>
               )}

@@ -33,6 +33,7 @@ interface ProjectBase {
   forWho?: string[];
   features: string[];
   steps?: string[];
+  contactTopic?: string; // optional short query value for the contact form
   tech?: string[];
   repoUrl?: string;
   demoUrl?: string;
@@ -179,6 +180,7 @@ export const PROJECTS: Project[] = [
       "We fix and test",
       "You pay when it works",
     ],
+    contactTopic: "fix",
     tech: ["Next.js", "React", "Node.js", "WordPress", "PostgreSQL"],
   },
   // ───────── Products ─────────
