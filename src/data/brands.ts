@@ -66,6 +66,7 @@ export interface Brand {
     title: string;
     intro: string;
     topics: string[]; // options in the "What is this about?" dropdown
+    queryTopics?: Record<string, string>; // short URL values mapped to topic labels
     helpful: string[]; // what to include in the message
   };
   terms: LegalSection[];
@@ -220,6 +221,7 @@ export const BRANDS: Brand[] = [
         "Fix or improve existing software",
         "Not sure yet",
       ],
+      queryTopics: { fix: "Fix or improve existing software" },
       helpful: [
         "What your business does",
         "What you use today (paper, Excel, an old app…)",

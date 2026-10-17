@@ -32,6 +32,8 @@ interface ProjectBase {
   idea: string; // how we approach it
   forWho?: string[];
   features: string[];
+  steps?: string[];
+  contactTopic?: string; // optional short query value for the contact form
   tech?: string[];
   repoUrl?: string;
   demoUrl?: string;
@@ -127,24 +129,59 @@ export const PROJECTS: Project[] = [
   {
     slug: "apis-and-backend",
     brand: "services",
-    name: "APIs, backend & fixes",
+    name: "APIs & backend",
     status: "available",
-    summary: "Backends, databases, integrations, and fixing or speeding up software you already have.",
+    summary: "APIs, databases and integrations that keep your app and tools working together.",
     problem:
-      "Your app is slow, breaks in strange ways, or can't talk to the other tools you use.",
-    vision: "Software that runs quietly in the background and just works.",
+      "Your app needs reliable data and a way to share it with the other tools your team uses.",
+    vision: "A dependable backend that moves the right data to the right place.",
     idea:
-      "We read the existing code first, find the real cause, and fix it in small, safe steps with notes you can keep.",
+      "We map the data and connections you need, then build a clear API and database foundation you can maintain.",
     forWho: ["Startups with a growing app", "Teams with an older codebase", "Anyone connecting two systems"],
     features: [
       "REST and GraphQL APIs",
       "Database design and migrations",
       "Login, roles and permissions",
       "Third-party integrations and webhooks",
-      "Bug fixing and performance work",
+      "Background jobs and data sync",
       "Deployment and handover docs",
     ],
     tech: ["Node.js", "PostgreSQL", "Hasura", "GraphQL"],
+  },
+  {
+    slug: "bug-fixes",
+    brand: "services",
+    name: "Bug fixes & technical support",
+    status: "available",
+    summary: "Website slow or broken? App crashing? We find the problem and fix it, at a clear price.",
+    problem: "Your website or app stopped working, loads slowly, or shows errors, and the developer who built it isn't available.",
+    vision: "Software you can rely on, and someone to call when it breaks.",
+    idea: "We look at the problem first, tell you what's wrong in simple words, give a fixed price, then fix and test it with you. You only pay when it works.",
+    forWho: [
+      "Shops and businesses with a website or app",
+      "Owners whose old developer is unavailable",
+      "Startups that need quick fixes",
+      "Anyone with a slow or broken site",
+    ],
+    features: [
+      "Broken pages, errors and crashes",
+      "Slow websites and apps",
+      "Login, payment and form problems",
+      "WordPress, React, Next.js and Node.js fixes",
+      "Database and API errors",
+      "Hosting, domain and SSL issues",
+      "Mobile layout problems",
+      "Urgent fixes when your site is down",
+    ],
+    steps: [
+      "Tell us the problem",
+      "We check it",
+      "You get a fixed price",
+      "We fix and test",
+      "You pay when it works",
+    ],
+    contactTopic: "fix",
+    tech: ["Next.js", "React", "Node.js", "WordPress", "PostgreSQL"],
   },
   // ───────── Products ─────────
   {
