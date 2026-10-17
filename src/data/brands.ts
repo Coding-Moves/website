@@ -253,7 +253,7 @@ export const BRANDS: Brand[] = [
       story: [
         "New tech moves fast. The only way to know if an idea works is to build a small version and test it.",
         "Every experiment here is labelled with its real stage, from rough idea to working prototype. If something failed, we say so, because that's useful too.",
-        "Good experiments move on: into Products, into Open Source, or into client work.",
+        "Good experiments can grow into useful tools or teach us what to try next.",
       ],
       principles: [
         { title: "Honest labels", text: "Idea, prototype, in progress, released or archived. Always visible." },

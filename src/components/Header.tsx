@@ -33,7 +33,7 @@ export default function Header({ brand, page }: { brand: Brand; page: Page }) {
         </nav>
 
         <div className="header-tools">
-          <details className="switcher">
+          {brand.id === "main" && <details className="switcher">
             <summary className="icon-btn" aria-label="All Coding Moves sections" title="All sections">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <rect x="3" y="3" width="7.5" height="7.5" rx="2" />
@@ -58,7 +58,7 @@ export default function Header({ brand, page }: { brand: Brand; page: Page }) {
                 )
               ))}
             </div>
-          </details>
+          </details>}
           <ThemeToggle />
         </div>
       </div>

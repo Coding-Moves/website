@@ -24,7 +24,7 @@ export default function BrandShell({
       <a href="#main" className="skip">Skip to content</a>
       <Header brand={brand} page={page} />
       <main id="main">{children}</main>
-      <Footer />
+      <Footer brand={brand} />
     </div>
   );
 }
