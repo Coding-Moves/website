@@ -74,7 +74,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
               </label>
             </p>
             <div className="field">
-              <label htmlFor="name">Your name <span aria-hidden="true">*</span></label>
+              <label htmlFor="name">Name <span aria-hidden="true">*</span></label>
               <input id="name" name="name" autoComplete="name" placeholder="Your full name" required minLength={2} maxLength={60} aria-describedby={`${formName}-name-error`} />
               <p id={`${formName}-name-error`} className="field-error" hidden />
             </div>
@@ -89,7 +89,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
             {c.variant === "detailed" && (
               <>
                 <div className="field">
-                  <label htmlFor="phone">WhatsApp / phone (optional)</label>
+                  <label htmlFor="phone">WhatsApp / phone</label>
                   <input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+92 3xx xxxxxxx" aria-describedby={`${formName}-phone-hint ${formName}-phone-error`} />
                   <p id={`${formName}-phone-hint`} className="field-hint" hidden>Please add your number so we can reach you</p>
                   <p id={`${formName}-phone-error`} className="field-error" hidden />
@@ -105,7 +105,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
               </>
             )}
             <div className="field">
-              <label htmlFor="topic">What is this about? <span aria-hidden="true">*</span></label>
+              <label htmlFor="topic">What do you need? <span aria-hidden="true">*</span></label>
               <select id="topic" name="topic" defaultValue="" required aria-describedby={`${formName}-topic-error`}>
                 <option value="" disabled>Choose a topic</option>
                 {c.topics.map((t) => (
