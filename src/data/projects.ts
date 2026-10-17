@@ -146,6 +146,33 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Node.js", "PostgreSQL", "Hasura", "GraphQL"],
   },
+  {
+    slug: "bug-fixes",
+    brand: "services",
+    name: "Bug fixes & technical support",
+    status: "available",
+    summary: "Website slow or broken? App crashing? We find the problem and fix it, at a clear price.",
+    problem: "Your website or app stopped working, loads slowly, or shows errors, and the developer who built it isn't available.",
+    vision: "Software you can rely on, and someone to call when it breaks.",
+    idea: "We look at the problem first, tell you what's wrong in simple words, give a fixed price, then fix and test it with you. You only pay when it works.",
+    forWho: [
+      "Shops and businesses with a website or app",
+      "Owners whose old developer is unavailable",
+      "Startups that need quick fixes",
+      "Anyone with a slow or broken site",
+    ],
+    features: [
+      "Broken pages, errors and crashes",
+      "Slow websites and apps",
+      "Login, payment and form problems",
+      "WordPress, React, Next.js and Node.js fixes",
+      "Database and API errors",
+      "Hosting, domain and SSL issues",
+      "Mobile layout problems",
+      "Urgent fixes when your site is down",
+    ],
+    tech: ["Next.js", "React", "Node.js", "WordPress", "PostgreSQL"],
+  },
   // ───────── Products ─────────
   {
     slug: "farm-manager",
