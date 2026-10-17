@@ -9,7 +9,7 @@ export default function BrandShell({
   children,
 }: {
   brand: Brand;
-  page: "home" | "about" | "contact" | "project";
+  page: "home" | "about" | "contact" | "project" | "legal";
   children: ReactNode;
 }) {
   const vars = {

@@ -16,6 +16,18 @@ export type BrandId =
   | "research";
 
 export type BrandStatus = "live" | "in-progress";
+export type LegalSection = { heading: string; body: string[] };
+
+const PRIVACY_SECTIONS: LegalSection[] = [
+  {
+    heading: "Contact messages",
+    body: ["The contact form collects your name, email, chosen topic and message only so we can reply. Netlify Forms handles submissions for us."],
+  },
+  {
+    heading: "Your information",
+    body: ["We do not sell your data. To ask us to delete a contact message, use this site's Contact page."],
+  },
+];
 
 export interface Brand {
   id: BrandId;
@@ -54,6 +66,8 @@ export interface Brand {
     topics: string[]; // options in the "What is this about?" dropdown
     helpful: string[]; // what to include in the message
   };
+  terms: LegalSection[];
+  privacy: LegalSection[];
 }
 
 export const BRANDS: Brand[] = [
@@ -118,6 +132,11 @@ export const BRANDS: Brand[] = [
       topics: ["I need software built", "Collaboration", "Open source", "Something else"],
       helpful: ["Who you are", "What you'd like to do", "Any links that help us understand"],
     },
+    terms: [
+      { heading: "Using this site", body: ["This site introduces our work and gives you a way to contact us. Its content may change as the team and projects develop."] },
+      { heading: "Working together", body: ["Any paid work needs a separate written agreement covering scope, timing, payment and ownership."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
   },
   {
     id: "services",
@@ -205,6 +224,11 @@ export const BRANDS: Brand[] = [
         "Rough budget and timeline, if you have one",
       ],
     },
+    terms: [
+      { heading: "Projects and payment", body: ["We scope and quote each project in writing before work starts. Payment is made in the stages agreed for that project. Changes outside the agreed scope are quoted separately."] },
+      { heading: "Code, data and support", body: ["Code ownership is agreed in writing for each project. We keep client data private. Support after handover is agreed separately."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
   },
   {
     id: "lab",
@@ -268,6 +292,10 @@ export const BRANDS: Brand[] = [
       topics: ["Idea for an experiment", "Feedback on an experiment", "Want to collaborate", "Something else"],
       helpful: ["Which experiment (if any)", "What you'd like to try or change", "How we can reach you"],
     },
+    terms: [
+      { heading: "Experiments", body: ["Lab experiments are provided as-is. They may change or stop without notice and are not intended for production use."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
   },
   {
     id: "open-source",
@@ -330,6 +358,10 @@ export const BRANDS: Brand[] = [
       topics: ["Report a problem", "I want to contribute", "Review / help my project", "Something else"],
       helpful: ["Project name or link", "What happened, or what you'd like to do", "Your GitHub username (optional)"],
     },
+    terms: [
+      { heading: "Repositories and contributions", body: ["Each repository's own licence applies to its code. Contributions are made under that licence and should follow that repository's code of conduct."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
   },
   {
     id: "products",
@@ -378,6 +410,10 @@ export const BRANDS: Brand[] = [
       topics: ["Notify me when ready", "I have a product idea", "Something else"],
       helpful: ["What problem you'd want solved", "How we can reach you"],
     },
+    terms: [
+      { heading: "Products in development", body: ["These tools are still in development. Features, availability and any future pricing will be published when ready."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
   },
   {
     id: "research",
@@ -420,6 +456,10 @@ export const BRANDS: Brand[] = [
       topics: ["Topic suggestion", "Feedback", "Something else"],
       helpful: ["The topic", "Why it matters to you"],
     },
+    terms: [
+      { heading: "Research in development", body: ["Articles and notes are being prepared. Details about reuse and attribution will be added before publication."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
   },
 ];
 

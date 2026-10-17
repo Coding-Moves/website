@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = BRANDS.flatMap((b) =>
-    ["/", "/about/", "/contact/"].map((sub) => ({
+    ["/", "/about/", "/contact/", "/terms/", "/privacy/"].map((sub) => ({
       url: absolute(`${b.path}${sub}`),
       priority: b.id === "main" && sub === "/" ? 1 : sub === "/" ? 0.8 : 0.5,
     })),

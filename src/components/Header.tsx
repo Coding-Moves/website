@@ -3,7 +3,7 @@ import { BRANDS, href, logoSrc, type Brand } from "@/data/brands";
 import ThemeToggle from "./ThemeToggle";
 import SubBrandLink from "./SubBrandLink";
 
-type Page = "home" | "about" | "contact" | "project";
+type Page = "home" | "about" | "contact" | "project" | "legal";
 
 export default function Header({ brand, page }: { brand: Brand; page: Page }) {
   const sub = brand.id === "main" ? null : brand.short;

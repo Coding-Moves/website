@@ -39,6 +39,8 @@ export default function Footer({ brand }: { brand: Brand }) {
             )}
             {main && SITE.githubUrl && <a href={SITE.githubUrl}>GitHub</a>}
             {main && SITE.youtubeUrl && <a href={SITE.youtubeUrl}>YouTube</a>}
+            <Link href={href(brand, "/terms/")}>Terms</Link>
+            <Link href={href(brand, "/privacy/")}>Privacy</Link>
           </nav>
         </div>
         <div className="footer-bottom">
