@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BRANDS, href, logoSrc, type Brand } from "@/data/brands";
 import ThemeToggle from "./ThemeToggle";
+import SubBrandLink from "./SubBrandLink";
 
 type Page = "home" | "about" | "contact" | "project";
 
@@ -44,13 +45,17 @@ export default function Header({ brand, page }: { brand: Brand; page: Page }) {
             <div className="switcher-panel">
               <p>Coding Moves family</p>
               {BRANDS.map((b) => (
-                <Link key={b.id} href={href(b, "/")} className="switcher-item">
-                  <img src={logoSrc(b)} alt="" width={34} height={34} />
-                  <span>
-                    <strong>{b.name}</strong>
-                    <small>{b.status === "in-progress" ? "In progress" : b.oneLiner}</small>
-                  </span>
-                </Link>
+                b.id === "main" ? (
+                  <Link key={b.id} href={href(b, "/")} className="switcher-item">
+                    <img src={logoSrc(b)} alt="" width={34} height={34} />
+                    <span><strong>{b.name}</strong><small>{b.oneLiner}</small></span>
+                  </Link>
+                ) : (
+                  <SubBrandLink key={b.id} href={href(b, "/")} className="switcher-item">
+                    <img src={logoSrc(b)} alt="" width={34} height={34} />
+                    <span><strong>{b.name}</strong><small>{b.status === "in-progress" ? "In progress" : b.oneLiner}</small></span>
+                  </SubBrandLink>
+                )
               ))}
             </div>
           </details>

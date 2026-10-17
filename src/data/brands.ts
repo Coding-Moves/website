@@ -426,6 +426,10 @@ export const BRANDS: Brand[] = [
 export const MAIN = BRANDS[0];
 export const SUB_BRANDS = BRANDS.filter((b) => b.id !== "main");
 
+export function isSubBrandHref(path: string): boolean {
+  return SUB_BRANDS.some((b) => path === b.path || path.startsWith(`${b.path}/`));
+}
+
 export function getBrand(id: string): Brand | undefined {
   return BRANDS.find((b) => b.id === id);
 }

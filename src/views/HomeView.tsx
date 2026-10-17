@@ -1,10 +1,18 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { SUB_BRANDS, href, logoSrc, type Brand } from "@/data/brands";
+import { SUB_BRANDS, href, isSubBrandHref, logoSrc, type Brand } from "@/data/brands";
 import { projectsFor } from "@/data/projects";
 import { SITE, SITE_URL } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
+import SubBrandLink from "@/components/SubBrandLink";
 import { CtaBand, InProgressNotice, ProjectCard } from "@/components/Bits";
+
+function HeroAction({ brand, action, className }: { brand: Brand; action: { href: string; label: string }; className: string }) {
+  if (brand.id === "main" && isSubBrandHref(action.href)) {
+    return <SubBrandLink href={action.href} className={className}>{action.label}</SubBrandLink>;
+  }
+  return <Link href={action.href} className={className}>{action.label}</Link>;
+}
 
 export default function HomeView({ brand }: { brand: Brand }) {
   const h = brand.home;
@@ -20,13 +28,9 @@ export default function HomeView({ brand }: { brand: Brand }) {
             <h1>{h.title}</h1>
             <p className="lead">{h.intro}</p>
             <div className="hero-actions">
-              <Link href={h.primaryCta.href} className="btn btn-primary">
-                {h.primaryCta.label} →
-              </Link>
+              <HeroAction brand={brand} action={h.primaryCta} className="btn btn-primary" />
               {h.secondaryCta && (
-                <Link href={h.secondaryCta.href} className="btn btn-ghost">
-                  {h.secondaryCta.label}
-                </Link>
+                <HeroAction brand={brand} action={h.secondaryCta} className="btn btn-ghost" />
               )}
             </div>
             <InProgressNotice brand={brand} />
@@ -46,7 +50,7 @@ export default function HomeView({ brand }: { brand: Brand }) {
             </div>
             <div className="grid grid-brands">
               {SUB_BRANDS.map((b) => (
-                <Link
+                <SubBrandLink
                   key={b.id}
                   href={href(b, "/")}
                   className="card brand-card"
@@ -60,8 +64,8 @@ export default function HomeView({ brand }: { brand: Brand }) {
                     </div>
                   </div>
                   <p>{b.oneLiner}</p>
-                  <span className="card-more">Visit {b.name} →</span>
-                </Link>
+                  <span className="card-more">Visit {b.name}</span>
+                </SubBrandLink>
               ))}
             </div>
           </div>
