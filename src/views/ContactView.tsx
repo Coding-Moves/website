@@ -124,7 +124,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
             <button type="submit" className="btn btn-primary">
               Send message →
             </button>
-            <p className="fineprint">We only use your details to reply to you.</p>
+            <p className="fineprint">We&apos;ll reply by email (or WhatsApp if you choose it), usually within 1–2 working days.</p>
           </form>
         </div>
       </section>
