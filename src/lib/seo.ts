@@ -16,12 +16,15 @@ export function pageMeta(opts: {
     title: fullTitle,
     description,
     alternates: { canonical: path },
-    icons: { icon: "/favicon.svg", apple: "/apple-touch-icon.png" },
+    icons: {
+      icon: `/favicons/${brand.id}.svg`,
+      apple: brand.id === "main" ? "/apple-touch-icon.png" : `/logos/${brand.id}.svg`,
+    },
     openGraph: {
       title: fullTitle,
       description,
       url: path,
-      siteName: "Coding Moves",
+      siteName: brand.name,
       type: "website",
       images: [{ url: image, width: 1200, height: 630, alt: brand.name }],
     },

@@ -1,8 +1,9 @@
 // Generates every Coding Moves logo as SVG from ONE master design.
 // Child logos = same tile + same "C" mark, recoloured, plus a small corner badge.
-// Run: node scripts/logos.mjs   (writes to public/logos and public/favicon.svg)
+// Run: node scripts/logos.mjs   (writes to public/logos and public/favicons)
 import { mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
 export const VARIANTS = {
   main: {
@@ -153,8 +154,8 @@ export function logoSvg(id, { size = 512, tile = true } = {}) {
 }
 
 // Simplified mark for 16–32px: no glow, no highlight line, no badge.
-export function faviconSvg() {
-  const v = VARIANTS.main;
+export function faviconSvg(id) {
+  const v = VARIANTS[id];
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
   <defs>
     <linearGradient id="f" x1="116" y1="130" x2="332" y2="382" gradientUnits="userSpaceOnUse">
@@ -169,13 +170,16 @@ export function faviconSvg() {
 `;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
   const out = join(process.cwd(), "public", "logos");
+  const favicons = join(process.cwd(), "public", "favicons");
   mkdirSync(out, { recursive: true });
+  mkdirSync(favicons, { recursive: true });
   for (const id of Object.keys(VARIANTS)) {
     writeFileSync(join(out, `${id}.svg`), logoSvg(id));
     writeFileSync(join(out, `${id}-mark.svg`), logoSvg(id, { tile: false }));
+    writeFileSync(join(favicons, `${id}.svg`), faviconSvg(id));
   }
-  writeFileSync(join(process.cwd(), "public", "favicon.svg"), faviconSvg());
-  console.log("Logos written to public/logos");
+  writeFileSync(join(process.cwd(), "public", "favicon.svg"), faviconSvg("main"));
+  console.log("Logos and favicons written to public");
 }

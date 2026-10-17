@@ -133,23 +133,21 @@ export default function HomeView({ brand }: { brand: Brand }) {
 
       <CtaBand brand={brand} />
 
-      {isMain && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Coding Moves",
-              url: SITE_URL,
-              logo: `${SITE_URL}/logos/main.svg`,
-              slogan: SITE.slogan,
-              description: brand.seoDescription,
-              ...(SITE.githubUrl ? { sameAs: [SITE.githubUrl] } : {}),
-            }),
-          }}
-        />
-      )}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": brand.id === "services" ? "Service" : "Organization",
+            name: brand.name,
+            url: new URL(href(brand, "/"), SITE_URL).toString(),
+            logo: new URL(logoSrc(brand), SITE_URL).toString(),
+            description: brand.seoDescription,
+            ...(isMain ? { slogan: SITE.slogan } : {}),
+            ...(isMain && SITE.githubUrl ? { sameAs: [SITE.githubUrl] } : {}),
+          }),
+        }}
+      />
     </BrandShell>
   );
 }
