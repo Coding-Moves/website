@@ -1,6 +1,7 @@
 import { href, type Brand } from "@/data/brands";
-import { SITE } from "@/data/site";
+import { SERVICES_CONTACT } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
+import SubBrandLink from "@/components/SubBrandLink";
 
 // Netlify Forms: Netlify finds this form in the built HTML and collects
 // submissions for you (Site → Forms in the Netlify dashboard). No backend needed.
@@ -23,10 +24,35 @@ export default function ContactView({ brand }: { brand: Brand }) {
                 ))}
               </ul>
             </div>
-            {SITE.email && (
-              <p className="fineprint" style={{ marginTop: 16 }}>
-                Prefer email? <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-              </p>
+            {c.variant === "detailed" && (
+              <section className="direct-contact" aria-labelledby="direct-contact-title">
+                <h2 id="direct-contact-title">Talk to us directly</h2>
+                <div className="direct-contact-cards">
+                  <div className="card">
+                    <h3>WhatsApp or call</h3>
+                    {SERVICES_CONTACT.phones.map((phone) => {
+                      const digits = phone.replace(/\D/g, "");
+                      return (
+                        <div className="direct-contact-option" key={phone}>
+                          <p>{phone}</p>
+                          <div className="direct-contact-actions">
+                            <SubBrandLink href={`https://wa.me/${digits}`} className="btn btn-ghost">WhatsApp</SubBrandLink>
+                            <a href={`tel:+${digits}`} className="btn btn-ghost">Call</a>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="card">
+                    <h3>Email</h3>
+                    {SERVICES_CONTACT.emails.map((email) => (
+                      <p className="direct-contact-email" key={email}>
+                        <a href={`mailto:${email}?subject=${encodeURIComponent("Project inquiry: Coding Moves Services")}`}>{email}</a>
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </section>
             )}
           </div>
 

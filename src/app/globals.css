@@ -661,6 +661,42 @@ a.card:hover {
   gap: 40px;
   align-items: start;
 }
+.direct-contact {
+  margin-top: 28px;
+}
+.direct-contact h2 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+.direct-contact-cards {
+  display: grid;
+  gap: 14px;
+}
+.direct-contact-option + .direct-contact-option {
+  border-top: 1px solid var(--border);
+  margin-top: 16px;
+  padding-top: 16px;
+}
+.direct-contact-option p {
+  color: var(--heading);
+  font-weight: 600;
+}
+.direct-contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+.direct-contact-actions .btn {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.direct-contact-email {
+  overflow-wrap: anywhere;
+}
+.direct-contact-email + .direct-contact-email {
+  margin-top: 12px;
+}
 .checklist {
   list-style: none;
   padding: 0;

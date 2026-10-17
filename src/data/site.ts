@@ -11,3 +11,8 @@ export const SITE = {
   email: null as string | null, // TODO: e.g. "hello@yourdomain.com"
   youtubeUrl: null as string | null,
 };
+
+export const SERVICES_CONTACT = {
+  phones: ["+92 329 7316882", "+92 371 0178815"], // TODO: confirm second number
+  emails: ["contactmuawia@gmail.com", "contactahmadhassann@gmail.com"],
+};

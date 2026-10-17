@@ -62,6 +62,7 @@ export interface Brand {
     principles: { title: string; text: string }[];
   };
   contact: {
+    variant?: "detailed";
     title: string;
     intro: string;
     topics: string[]; // options in the "What is this about?" dropdown
@@ -207,6 +208,7 @@ export const BRANDS: Brand[] = [
       ],
     },
     contact: {
+      variant: "detailed",
       title: "Tell us about your project",
       intro:
         "No tech words needed. Just describe what's hard today and what you'd like to be easier. We'll reply with questions or a rough plan.",
