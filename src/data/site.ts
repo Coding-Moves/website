@@ -13,6 +13,6 @@ export const SITE = {
 };
 
 export const SERVICES_CONTACT = {
-  phones: ["+92 329 7316882", "+92 371 0178815"], // TODO: confirm second number
+  phones: ["+92 329 7316882", "+92 371 0178815"],
   emails: ["contactmuawia@gmail.com", "contactahmadhassann@gmail.com"],
 };
