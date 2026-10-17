@@ -38,6 +38,8 @@ public/logos/          ← generated SVG logos (<id>.svg tile, <id>-mark.svg no 
 
 **Add a project or service page.** Copy an entry in `src/data/projects.ts`, change `brand`, `slug` and the text. Entries with `sample: true` are placeholders: replace or delete them (they are hidden from Google until then).
 
+**Add a Products app.** Use `brand: "products"` and set its `platforms` (Android, iOS, web, desktop or private). Store, web and download URLs are optional; buttons appear only when a URL is set. Private apps show a request-access link.
+
 **Add a new brand** (e.g. Team, Media):
 1. Add it to `BRANDS` in `src/data/brands.ts` (`status: "in-progress"` until ready).
 2. Add its colours + badge icon to `VARIANTS` in `scripts/logos.mjs`, then `npm run logos`.
