@@ -12,8 +12,9 @@ export type BrandId =
   | "services"
   | "lab"
   | "open-source"
-  | "academy"
-  | "research";
+  | "products"
+  | "research"
+  | "academy";
 
 export type BrandStatus = "live" | "in-progress";
 export type LegalSection = { heading: string; body: string[] };
@@ -52,8 +53,6 @@ export interface Brand {
     steps?: { title: string; text: string }[];
     itemsTitle?: string; // heading above the projects / services list
     itemsIntro?: string;
-    readyMadeTitle?: string;
-    readyMadeIntro?: string;
   };
   about: {
     title: string;
@@ -85,12 +84,12 @@ export const BRANDS: Brand[] = [
     onAccent: "#ffffff",
     oneLiner: "A small software team that builds, experiments and shares.",
     seoDescription:
-      "Coding Moves is a small software team. We build custom software for businesses, run experiments with AI and new tech, and share open-source code.",
+      "Coding Moves builds custom software for clients, publishes its own apps, explores new ideas, shares open-source code and teaches what it learns.",
     home: {
       eyebrow: "Build · Explore · Impact",
       title: "We build useful software, and we show our work.",
       intro:
-        "Coding Moves is a small software team. We build custom and ready-made tools, test new ideas, share open-source code and teach what we learn. Pick the part you came for.",
+        "Coding Moves is a small software team. We build for clients, publish our own apps, test new ideas, share open-source code and teach what we learn. Pick the part you came for.",
       primaryCta: { label: "Get software built", href: "/services/" },
       secondaryCta: { label: "See what we're exploring", href: "/lab/" },
       pointsTitle: "How we work, in three lines",
@@ -117,7 +116,7 @@ export const BRANDS: Brand[] = [
         "To be a software team people trust because the work is useful, clear and honest, not because the website is loud.",
       story: [
         "We're developers who like solving practical problems: a shop that can't track its stock, a farm that keeps records in notebooks, a team drowning in spreadsheets.",
-        "Services builds custom software and ready-made tools. The Lab is where we test ideas, Open Source is where we share code, Research is where we write down what we learn, and Academy is where we teach it step by step.",
+        "Services builds custom software for clients. The Lab tests ideas, Open Source shares code, Products publishes our own apps, Research writes down what we learn, and Academy teaches it step by step.",
         "We're building Coding Moves step by step, and this site grows with it. If a section says \"in progress\", it really is.",
       ],
       principles: [
@@ -150,14 +149,14 @@ export const BRANDS: Brand[] = [
     accentSoft: "#FCD34D",
     accentDeep: "#B45309",
     onAccent: "#1C1104",
-    oneLiner: "We build software for you, custom-made or ready to use.",
+    oneLiner: "Custom software for businesses: systems, websites, AI and automation.",
     seoDescription:
-      "Custom software for your business and ready-made tools you can start using, from Coding Moves Services.",
+      "Custom software for small and growing businesses: management systems, websites, web apps, APIs, AI features and automation. Explained in plain words.",
     home: {
       eyebrow: "Coding Moves Services",
       title: "Software that fits how your business actually works.",
       intro:
-        "We build custom systems around how your business works, from stock and bookings to websites and automation. We're also building ready-made tools you can start using without a custom project. We explain both in plain words.",
+        "Still running stock, sales or bookings on paper, Excel and WhatsApp? We build simple, custom systems that keep everything in one place, and we explain every step in plain words.",
       primaryCta: { label: "Tell us what you need", href: "/services/contact/" },
       secondaryCta: { label: "See what we build", href: "#work" },
       pointsTitle: "Who we help",
@@ -187,14 +186,12 @@ export const BRANDS: Brand[] = [
         { title: "Handover & support", text: "You get the code, access and a simple guide. Support is agreed separately." },
       ],
       itemsTitle: "What we build",
-      itemsIntro: "Custom software and services, scoped around your needs.",
-      readyMadeTitle: "Ready-made tools",
-      readyMadeIntro: "Tools we're building for problems many people share.",
+      itemsIntro: "Each service has its own page explaining who it's for and what you get.",
     },
     about: {
       title: "About Coding Moves Services",
       intro:
-        "We build custom software for business problems and ready-made tools for needs many people share.",
+        "Coding Moves Services is the client side of Coding Moves. We take a business problem and turn it into working software.",
       vision:
         "Every small business should be able to have software that fits it, not the other way round, at a fair price and without the jargon.",
       story: [
@@ -219,7 +216,6 @@ export const BRANDS: Brand[] = [
         "AI or automation",
         "API / backend work",
         "Fix or improve existing software",
-        "Ready-made tool",
         "Not sure yet",
       ],
       helpful: [
@@ -365,6 +361,59 @@ export const BRANDS: Brand[] = [
     },
     terms: [
       { heading: "Repositories and contributions", body: ["Each repository's own licence applies to its code. Contributions are made under that licence and should follow that repository's code of conduct."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
+  },
+  {
+    id: "products",
+    name: "Coding Moves Products",
+    short: "Products",
+    path: "/products",
+    status: "live",
+    accent: "#8B5CF6",
+    accentSoft: "#C4B5FD",
+    accentDeep: "#6D28D9",
+    onAccent: "#ffffff",
+    oneLiner: "Apps we build, own and look after, ready for you to use.",
+    seoDescription: "Coding Moves Products creates its own mobile, web, desktop and private apps for everyday problems.",
+    home: {
+      eyebrow: "Coding Moves Products",
+      title: "Ready-made apps for real everyday problems.",
+      intro: "These are apps we build, own and look after ourselves. Some will be on the Play Store, some will run on the web or desktop, and some are private apps for invited users.",
+      primaryCta: { label: "Explore the apps", href: "#work" },
+      secondaryCta: { label: "Get notified", href: "/products/contact/" },
+      pointsTitle: "Where you can use them",
+      points: [
+        { title: "Mobile apps", text: "Apps you can get on the Play Store when they're ready." },
+        { title: "Web & desktop apps", text: "Tools you can use in your browser or on your computer." },
+        { title: "Private apps", text: "Invite-only apps for a small group of users." },
+      ],
+      itemsTitle: "Our apps",
+      itemsIntro: "Each app shows its real stage. Download and access links will appear when available.",
+    },
+    about: {
+      title: "About Coding Moves Products",
+      intro: "We make our own apps for everyday problems and look after them over time.",
+      vision: "Useful apps that are simple to start and clear about what they can do today.",
+      story: [
+        "Some problems come up again and again. We build focused apps for those needs, then publish them when they're ready for real people to use.",
+        "An app may be public on a store, available in a browser, downloadable for desktop, or private for an invited group. Each page says where it stands.",
+      ],
+      principles: [
+        { title: "Useful first", text: "An app should solve one real problem well." },
+        { title: "Clear status", text: "Ideas and prototypes are labelled honestly." },
+        { title: "Looked after", text: "We explain updates and support for each released app." },
+      ],
+    },
+    contact: {
+      title: "Talk about our apps",
+      intro: "Interested in an app, want to request access, or have feedback? Send us a short note.",
+      topics: ["Get notified", "Request access", "Feedback on an app", "Suggest an app", "Something else"],
+      helpful: ["Which app you mean", "What you'd like to do with it", "How we can reach you"],
+    },
+    terms: [
+      { heading: "Apps and availability", body: ["Apps are provided as-is. Features may change. Any available updates and support will be described for each app."] },
+      { heading: "Your data and app stores", body: ["We keep your app data private. If you get an app through a store, that store's policies also apply."] },
     ],
     privacy: PRIVACY_SECTIONS,
   },

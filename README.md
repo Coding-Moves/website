@@ -8,6 +8,7 @@
 | Services | `/services/` | `/services/about/` | `/services/contact/` | `/services/<slug>/` |
 | Lab | `/lab/` | `/lab/about/` | `/lab/contact/` | `/lab/<slug>/` |
 | Open Source | `/open-source/` | `/open-source/about/` | `/open-source/contact/` | `/open-source/<slug>/` |
+| Products | `/products/` | `/products/about/` | `/products/contact/` | `/products/<slug>/` |
 | Research *(in progress)* | `/research/` | … | … | `/research/<slug>/` |
 | Academy *(in progress)* | `/academy/` | … | … | `/academy/<slug>/` |
 
@@ -35,7 +36,7 @@ public/logos/          ← generated SVG logos (<id>.svg tile, <id>-mark.svg no 
 
 ## Common jobs
 
-**Add a project or service page.** Copy an entry in `src/data/projects.ts`, change `brand`, `slug` and the text. Services entries use `kind: "custom"` or `kind: "ready-made"` (custom by default). Entries with `sample: true` are placeholders: replace or delete them (they are hidden from Google until then).
+**Add a project or service page.** Copy an entry in `src/data/projects.ts`, change `brand`, `slug` and the text. Entries with `sample: true` are placeholders: replace or delete them (they are hidden from Google until then).
 
 **Add a new brand** (e.g. Team, Media):
 1. Add it to `BRANDS` in `src/data/brands.ts` (`status: "in-progress"` until ready).
@@ -57,13 +58,13 @@ netlify link --id d947983b-41e4-4af9-b63b-7a3bc82040cd
 netlify deploy --prod --dir=out
 ```
 
-Form detection is enabled for this site. After a deploy, verify the six contact forms in **Netlify → Forms**. Configure email notifications there if needed. Git-based continuous deployment can be connected after the source reaches `main`.
+Form detection is enabled for this site. After a deploy, verify the seven contact forms in **Netlify → Forms**. Configure email notifications there if needed. Git-based continuous deployment can be connected after the source reaches `main`.
 
 When you buy a domain, add it in Netlify → **Domain management**, then change `SITE_URL` in `src/data/site.ts` and redeploy.
 
 ## Before launch checklist
 
-- [ ] Replace the sample Farm manager project before launch
+- [x] Remove sample projects before launch
 - [x] Set `githubUrl` in `src/data/site.ts`; add an email address there if needed
 - [ ] Read every page out loud once. Does it sound like you?
 - [ ] Submit `/sitemap.xml` in Google Search Console after the domain is live
