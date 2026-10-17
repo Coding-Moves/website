@@ -85,6 +85,21 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
         </div>
       </section>
 
+      {p.steps && (
+        <section className="section" aria-labelledby="project-steps">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="project-steps">How it works</h2>
+            </div>
+            <ol className="steps">
+              {p.steps.map((step) => (
+                <li key={step}><h3>{step}</h3></li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )}
+
       <section className="section">
         <div className="container two-col">
           <div className="card">

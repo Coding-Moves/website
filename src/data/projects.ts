@@ -32,6 +32,7 @@ interface ProjectBase {
   idea: string; // how we approach it
   forWho?: string[];
   features: string[];
+  steps?: string[];
   tech?: string[];
   repoUrl?: string;
   demoUrl?: string;
@@ -170,6 +171,13 @@ export const PROJECTS: Project[] = [
       "Hosting, domain and SSL issues",
       "Mobile layout problems",
       "Urgent fixes when your site is down",
+    ],
+    steps: [
+      "Tell us the problem",
+      "We check it",
+      "You get a fixed price",
+      "We fix and test",
+      "You pay when it works",
     ],
     tech: ["Next.js", "React", "Node.js", "WordPress", "PostgreSQL"],
   },
