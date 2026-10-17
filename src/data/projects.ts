@@ -22,9 +22,8 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
   archived: "Archived",
 };
 
-export interface Project {
+interface ProjectBase {
   slug: string; // must not be "about" or "contact"
-  brand: BrandId;
   name: string;
   status: ProjectStatus;
   summary: string; // one line for cards and SEO
@@ -38,6 +37,23 @@ export interface Project {
   demoUrl?: string;
   sample?: boolean;
 }
+
+export type ProductPlatform = "android" | "ios" | "web" | "desktop" | "private";
+
+export interface ProductProject extends ProjectBase {
+  brand: "products";
+  platforms?: ProductPlatform[];
+  playStoreUrl?: string;
+  appStoreUrl?: string;
+  webUrl?: string;
+  downloadUrl?: string;
+}
+
+export interface OtherProject extends ProjectBase {
+  brand: Exclude<BrandId, "products">;
+}
+
+export type Project = ProductProject | OtherProject;
 
 export const PROJECTS: Project[] = [
   // ───────── Services ─────────

@@ -1,7 +1,20 @@
 import Link from "next/link";
 import type { Brand } from "@/data/brands";
 import { href } from "@/data/brands";
-import { STATUS_LABEL, type Project } from "@/data/projects";
+import { STATUS_LABEL, type ProductPlatform, type Project } from "@/data/projects";
+
+const PLATFORM_LABEL: Record<ProductPlatform, string> = {
+  android: "Android",
+  ios: "iOS",
+  web: "Web",
+  desktop: "Desktop",
+  private: "Private",
+};
+
+export function PlatformBadges({ platforms }: { platforms?: ProductPlatform[] }) {
+  if (!platforms?.length) return null;
+  return <>{platforms.map((platform) => <span className="platform-badge" key={platform}>{PLATFORM_LABEL[platform]}</span>)}</>;
+}
 
 export function StatusBadge({ status }: { status: Project["status"] }) {
   return <span className={`status status-${status}`}>{STATUS_LABEL[status]}</span>;
@@ -26,6 +39,7 @@ export function ProjectCard({ brand, project }: { brand: Brand; project: Project
     <Link href={href(brand, `/${project.slug}/`)} className="card">
       <div className="badges">
         <StatusBadge status={project.status} />
+        {project.brand === "products" && <PlatformBadges platforms={project.platforms} />}
         {project.sample && <SampleBadge />}
       </div>
       <h3>{project.name}</h3>

@@ -554,6 +554,18 @@ a.card:hover {
   --s: #f43f5e;
   border-style: dashed;
 }
+.platform-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .badges {
   display: flex;
   flex-wrap: wrap;
