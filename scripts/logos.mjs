@@ -56,10 +56,10 @@ export const VARIANTS = {
   },
   academy: {
     label: "Coding Moves Academy",
-    light: "#FDA4AF",
+    light: "#FECDD3",
     mid: "#F43F5E",
-    deep: "#BE123C",
-    chev: ["#FDA4AF", "#FB7185"],
+    deep: "#9F1239",
+    chev: ["#FDA4AF", "#F43F5E"],
     badge: "cap",
   },
 };
@@ -78,7 +78,7 @@ const BADGE_ICONS = {
   branch:
     '<circle cx="14" cy="10" r="4.5"/><circle cx="14" cy="38" r="4.5"/><circle cx="34" cy="16" r="4.5"/><path d="M14 14.5v19"/><path d="M34 20.5c0 9-20 6-20 13"/>',
   cap:
-    '<path d="M4 17 24 8 44 17 24 26 4 17Z"/><path d="M12 22v11c7 6 17 6 24 0V22"/><path d="M44 17v15"/><circle cx="44" cy="35" r="2"/>',
+    '<path d="M3 18 24 9l21 9-21 9z"/><path d="M12 22v10c0 3 6 6 12 6s12-3 12-6V22"/><path d="M45 18v12"/>',
   cube:
     '<path d="M24 5 41 14v20L24 43 7 34V14z"/><path d="M7 14l17 9 17-9"/><path d="M24 23v20"/>',
   book:
