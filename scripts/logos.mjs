@@ -38,14 +38,6 @@ export const VARIANTS = {
     chev: ["#6EE7B7", "#14B8A6"],
     badge: "branch",
   },
-  academy: {
-    label: "Coding Moves Academy",
-    light: "#FDA4AF",
-    mid: "#F43F5E",
-    deep: "#BE123C",
-    chev: ["#FDA4AF", "#FB7185"],
-    badge: "cap",
-  },
   research: {
     label: "Coding Moves Research",
     light: "#F5D0FE",
@@ -53,6 +45,14 @@ export const VARIANTS = {
     deep: "#701A75",
     chev: ["#F0ABFC", "#C026D3"],
     badge: "book",
+  },
+  academy: {
+    label: "Coding Moves Academy",
+    light: "#FDA4AF",
+    mid: "#F43F5E",
+    deep: "#BE123C",
+    chev: ["#FDA4AF", "#FB7185"],
+    badge: "cap",
   },
 };
 

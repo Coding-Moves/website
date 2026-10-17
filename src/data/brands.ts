@@ -90,7 +90,7 @@ export const BRANDS: Brand[] = [
       eyebrow: "Build · Explore · Impact",
       title: "We build useful software, and we show our work.",
       intro:
-        "Coding Moves is a small software team. We build systems for real businesses, test new ideas in our Lab, and share code with the open-source community. Pick the part you came for.",
+        "Coding Moves is a small software team. We build custom and ready-made tools, test new ideas, share open-source code and teach what we learn. Pick the part you came for.",
       primaryCta: { label: "Get software built", href: "/services/" },
       secondaryCta: { label: "See what we're exploring", href: "/lab/" },
       pointsTitle: "How we work, in three lines",
@@ -117,7 +117,7 @@ export const BRANDS: Brand[] = [
         "To be a software team people trust because the work is useful, clear and honest, not because the website is loud.",
       story: [
         "We're developers who like solving practical problems: a shop that can't track its stock, a farm that keeps records in notebooks, a team drowning in spreadsheets.",
-        "Alongside client work, we keep learning in public. The Lab is where we test AI and new tools. Open Source is where we share code and help other projects. Services also turns repeat problems into ready-made tools.",
+        "Services builds custom software and ready-made tools. The Lab is where we test ideas, Open Source is where we share code, Research is where we write down what we learn, and Academy is where we teach it step by step.",
         "We're building Coding Moves step by step, and this site grows with it. If a section says \"in progress\", it really is.",
       ],
       principles: [
@@ -369,6 +369,52 @@ export const BRANDS: Brand[] = [
     privacy: PRIVACY_SECTIONS,
   },
   {
+    id: "research",
+    name: "Coding Moves Research",
+    short: "Research",
+    path: "/research",
+    status: "in-progress",
+    accent: "#C026D3",
+    accentSoft: "#F0ABFC",
+    accentDeep: "#A21CAF",
+    onAccent: "#ffffff",
+    oneLiner: "Notes, articles and deep dives on what we learn.",
+    seoDescription:
+      "Coding Moves Research: technical notes, articles and learning resources from our projects and experiments.",
+    home: {
+      eyebrow: "Coding Moves Research",
+      title: "What we learn, written down.",
+      intro:
+        "Notes, write-ups and deep dives from our projects and experiments. We're collecting the first pieces now.",
+      primaryCta: { label: "Suggest a topic", href: "/research/contact/" },
+      pointsTitle: "What will live here",
+      points: [
+        { title: "Write-ups", text: "How we built something and why." },
+        { title: "Experiments explained", text: "Results from the Lab, in plain words." },
+        { title: "Learning notes", text: "Guides we wish we'd had." },
+      ],
+      itemsTitle: "Articles",
+      itemsIntro: "Each article will get its own page.",
+    },
+    about: {
+      title: "About Coding Moves Research",
+      intro: "Research is our notebook: we write down what we learn so others can use it too.",
+      vision: "Clear, honest technical writing that saves someone else a week.",
+      story: ["We'll publish here once the first pieces are ready."],
+      principles: [{ title: "Plain words", text: "Explain it so a beginner can follow." }],
+    },
+    contact: {
+      title: "Suggest a research topic",
+      intro: "What would you like us to dig into or explain?",
+      topics: ["Topic suggestion", "Feedback", "Something else"],
+      helpful: ["The topic", "Why it matters to you"],
+    },
+    terms: [
+      { heading: "Research in development", body: ["Articles and notes are being prepared. Details about reuse and attribution will be added before publication."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
+  },
+  {
     id: "academy",
     name: "Coding Moves Academy",
     short: "Academy",
@@ -414,52 +460,6 @@ export const BRANDS: Brand[] = [
     },
     terms: [
       { heading: "Learning resources in progress", body: ["Tutorials and courses are being prepared. Any future course details and terms will be shared before enrolment opens."] },
-    ],
-    privacy: PRIVACY_SECTIONS,
-  },
-  {
-    id: "research",
-    name: "Coding Moves Research",
-    short: "Research",
-    path: "/research",
-    status: "in-progress",
-    accent: "#C026D3",
-    accentSoft: "#F0ABFC",
-    accentDeep: "#A21CAF",
-    onAccent: "#ffffff",
-    oneLiner: "Notes, articles and deep dives on what we learn.",
-    seoDescription:
-      "Coding Moves Research: technical notes, articles and learning resources from our projects and experiments.",
-    home: {
-      eyebrow: "Coding Moves Research",
-      title: "What we learn, written down.",
-      intro:
-        "Notes, write-ups and deep dives from our projects and experiments. We're collecting the first pieces now.",
-      primaryCta: { label: "Suggest a topic", href: "/research/contact/" },
-      pointsTitle: "What will live here",
-      points: [
-        { title: "Write-ups", text: "How we built something and why." },
-        { title: "Experiments explained", text: "Results from the Lab, in plain words." },
-        { title: "Learning notes", text: "Guides we wish we'd had." },
-      ],
-      itemsTitle: "Articles",
-      itemsIntro: "Each article will get its own page.",
-    },
-    about: {
-      title: "About Coding Moves Research",
-      intro: "Research is our notebook: we write down what we learn so others can use it too.",
-      vision: "Clear, honest technical writing that saves someone else a week.",
-      story: ["We'll publish here once the first pieces are ready."],
-      principles: [{ title: "Plain words", text: "Explain it so a beginner can follow." }],
-    },
-    contact: {
-      title: "Suggest a research topic",
-      intro: "What would you like us to dig into or explain?",
-      topics: ["Topic suggestion", "Feedback", "Something else"],
-      helpful: ["The topic", "Why it matters to you"],
-    },
-    terms: [
-      { heading: "Research in development", body: ["Articles and notes are being prepared. Details about reuse and attribution will be added before publication."] },
     ],
     privacy: PRIVACY_SECTIONS,
   },
