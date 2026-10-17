@@ -38,15 +38,6 @@ export const VARIANTS = {
     chev: ["#6EE7B7", "#14B8A6"],
     badge: "branch",
   },
-  // Ready for later — not linked on the site yet.
-  products: {
-    label: "Coding Moves Products",
-    light: "#DDD6FE",
-    mid: "#8B5CF6",
-    deep: "#4C1D95",
-    chev: ["#C4B5FD", "#8B5CF6"],
-    badge: "cube",
-  },
   research: {
     label: "Coding Moves Research",
     light: "#F5D0FE",
@@ -70,8 +61,6 @@ const BADGE_ICONS = {
     '<path d="M19 6h10"/><path d="M21 6v12L9 38a3 3 0 0 0 3 4h24a3 3 0 0 0 3-4L27 18V6"/><path d="M14 30h20"/>',
   branch:
     '<circle cx="14" cy="10" r="4.5"/><circle cx="14" cy="38" r="4.5"/><circle cx="34" cy="16" r="4.5"/><path d="M14 14.5v19"/><path d="M34 20.5c0 9-20 6-20 13"/>',
-  cube:
-    '<path d="M24 5 41 14v20L24 43 7 34V14z"/><path d="M7 14l17 9 17-9"/><path d="M24 23v20"/>',
   book:
     '<path d="M24 12c-5-4-12-4-18-2v28c6-2 13-2 18 2 5-4 12-4 18-2V10c-6-2-13-2-18 2z"/><path d="M24 12v28"/>',
 };

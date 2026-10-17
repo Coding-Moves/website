@@ -12,7 +12,6 @@ export type BrandId =
   | "services"
   | "lab"
   | "open-source"
-  | "products"
   | "research";
 
 export type BrandStatus = "live" | "in-progress";
@@ -52,6 +51,8 @@ export interface Brand {
     steps?: { title: string; text: string }[];
     itemsTitle?: string; // heading above the projects / services list
     itemsIntro?: string;
+    readyMadeTitle?: string;
+    readyMadeIntro?: string;
   };
   about: {
     title: string;
@@ -115,7 +116,7 @@ export const BRANDS: Brand[] = [
         "To be a software team people trust because the work is useful, clear and honest, not because the website is loud.",
       story: [
         "We're developers who like solving practical problems: a shop that can't track its stock, a farm that keeps records in notebooks, a team drowning in spreadsheets.",
-        "Alongside client work, we keep learning in public. The Lab is where we test AI and new tools. Open Source is where we share code and help other projects. Products is where repeat problems turn into tools anyone can use.",
+        "Alongside client work, we keep learning in public. The Lab is where we test AI and new tools. Open Source is where we share code and help other projects. Services also turns repeat problems into ready-made tools.",
         "We're building Coding Moves step by step, and this site grows with it. If a section says \"in progress\", it really is.",
       ],
       principles: [
@@ -148,14 +149,14 @@ export const BRANDS: Brand[] = [
     accentSoft: "#FCD34D",
     accentDeep: "#B45309",
     onAccent: "#1C1104",
-    oneLiner: "Custom software for businesses: systems, websites, AI and automation.",
+    oneLiner: "We build software for you, custom-made or ready to use.",
     seoDescription:
-      "Custom software for small and growing businesses: management systems, websites, web apps, APIs, AI features and automation. Explained in plain words.",
+      "Custom software for your business and ready-made tools you can start using, from Coding Moves Services.",
     home: {
       eyebrow: "Coding Moves Services",
       title: "Software that fits how your business actually works.",
       intro:
-        "Still running stock, sales or bookings on paper, Excel and WhatsApp? We build simple, custom systems that keep everything in one place, and we explain every step in plain words.",
+        "We build custom systems around how your business works, from stock and bookings to websites and automation. We're also building ready-made tools you can start using without a custom project. We explain both in plain words.",
       primaryCta: { label: "Tell us what you need", href: "/services/contact/" },
       secondaryCta: { label: "See what we build", href: "#work" },
       pointsTitle: "Who we help",
@@ -185,12 +186,14 @@ export const BRANDS: Brand[] = [
         { title: "Handover & support", text: "You get the code, access and a simple guide. Support is agreed separately." },
       ],
       itemsTitle: "What we build",
-      itemsIntro: "Each service has its own page explaining who it's for and what you get.",
+      itemsIntro: "Custom software and services, scoped around your needs.",
+      readyMadeTitle: "Ready-made tools",
+      readyMadeIntro: "Tools we're building for problems many people share.",
     },
     about: {
       title: "About Coding Moves Services",
       intro:
-        "Coding Moves Services is the client side of Coding Moves. We take a business problem and turn it into working software.",
+        "We build custom software for business problems and ready-made tools for needs many people share.",
       vision:
         "Every small business should be able to have software that fits it, not the other way round, at a fair price and without the jargon.",
       story: [
@@ -200,7 +203,7 @@ export const BRANDS: Brand[] = [
       ],
       principles: [
         { title: "Agreed scope", text: "Features, timeline and price are written down before we start." },
-        { title: "You own what you pay for", text: "Code ownership and access are clear from day one." },
+        { title: "Ownership agreed up front", text: "Code ownership and access are settled in writing before work starts." },
         { title: "Your data stays private", text: "No secrets in code, no client data shared, ever." },
         { title: "Plain-word updates", text: "You always know what's done and what's next." },
       ],
@@ -215,6 +218,7 @@ export const BRANDS: Brand[] = [
         "AI or automation",
         "API / backend work",
         "Fix or improve existing software",
+        "Ready-made tool",
         "Not sure yet",
       ],
       helpful: [
@@ -360,58 +364,6 @@ export const BRANDS: Brand[] = [
     },
     terms: [
       { heading: "Repositories and contributions", body: ["Each repository's own licence applies to its code. Contributions are made under that licence and should follow that repository's code of conduct."] },
-    ],
-    privacy: PRIVACY_SECTIONS,
-  },
-  {
-    id: "products",
-    name: "Coding Moves Products",
-    short: "Products",
-    path: "/products",
-    status: "in-progress",
-    accent: "#8B5CF6",
-    accentSoft: "#C4B5FD",
-    accentDeep: "#6D28D9",
-    onAccent: "#ffffff",
-    oneLiner: "Our own tools, turning repeat problems into ready-made products.",
-    seoDescription:
-      "Coding Moves Products: software products we're building from real problems we keep seeing in client work.",
-    home: {
-      eyebrow: "Coding Moves Products",
-      title: "Our own products. Coming together.",
-      intro:
-        "When we solve the same problem for different people, it's a sign it should be a product. We're shaping our first ones now. This page will grow as they get ready.",
-      primaryCta: { label: "Get notified", href: "/products/contact/" },
-      pointsTitle: "What a Coding Moves product should be",
-      points: [
-        { title: "Simple to start", text: "Useful in the first ten minutes, no long setup." },
-        { title: "Built from real needs", text: "Born from problems we've actually solved." },
-        { title: "Looked after", text: "Updated and supported, not abandoned." },
-      ],
-      itemsTitle: "In the works",
-      itemsIntro: "Each product will get its own page with its idea, status and plan.",
-    },
-    about: {
-      title: "About Coding Moves Products",
-      intro: "Products is where our best ideas from client work and the Lab become tools anyone can use.",
-      vision: "A small set of focused tools that people actually keep using.",
-      story: [
-        "Not every idea should be a product. We only move something here once we know people really need it.",
-        "Until then, this section stays honest: \"in progress\" means in progress.",
-      ],
-      principles: [
-        { title: "Focused", text: "Do one job really well." },
-        { title: "Fair", text: "Clear pricing, your data stays yours." },
-      ],
-    },
-    contact: {
-      title: "Interested in our products?",
-      intro: "Tell us what you'd want from a product like this, or ask to be told when it's ready.",
-      topics: ["Notify me when ready", "I have a product idea", "Something else"],
-      helpful: ["What problem you'd want solved", "How we can reach you"],
-    },
-    terms: [
-      { heading: "Products in development", body: ["These tools are still in development. Features, availability and any future pricing will be published when ready."] },
     ],
     privacy: PRIVACY_SECTIONS,
   },

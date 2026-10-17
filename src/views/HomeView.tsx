@@ -16,7 +16,8 @@ function HeroAction({ brand, action, className }: { brand: Brand; action: { href
 
 export default function HomeView({ brand }: { brand: Brand }) {
   const h = brand.home;
-  const items = projectsFor(brand.id);
+  const items = projectsFor(brand.id, brand.id === "services" ? "custom" : undefined);
+  const readyMade = brand.id === "services" ? projectsFor(brand.id, "ready-made") : [];
   const isMain = brand.id === "main";
 
   return (
@@ -127,6 +128,20 @@ export default function HomeView({ brand }: { brand: Brand }) {
                 <p>The first pieces are on their way. Check back soon.</p>
               </div>
             )}
+          </div>
+        </section>
+      )}
+
+      {h.readyMadeTitle && readyMade.length > 0 && (
+        <section className="section" aria-labelledby="ready-made">
+          <div className="container">
+            <div className="section-head">
+              <h2 id="ready-made">{h.readyMadeTitle}</h2>
+              {h.readyMadeIntro && <p>{h.readyMadeIntro}</p>}
+            </div>
+            <div className="grid">
+              {readyMade.map((p) => <ProjectCard key={p.slug} brand={brand} project={p} />)}
+            </div>
           </div>
         </section>
       )}

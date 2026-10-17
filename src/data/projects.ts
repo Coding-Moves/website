@@ -25,6 +25,7 @@ export const STATUS_LABEL: Record<ProjectStatus, string> = {
 export interface Project {
   slug: string; // must not be "about" or "contact"
   brand: BrandId;
+  kind?: "custom" | "ready-made"; // defaults to custom
   name: string;
   status: ProjectStatus;
   summary: string; // one line for cards and SEO
@@ -44,6 +45,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "management-systems",
     brand: "services",
+    kind: "custom",
     name: "Business management systems",
     status: "available",
     summary: "Stock, sales, billing, customers and reports in one simple system built around your business.",
@@ -67,6 +69,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "websites-and-web-apps",
     brand: "services",
+    kind: "custom",
     name: "Websites & web apps",
     status: "available",
     summary: "Fast, clear websites and web apps that work well on phones and are easy to find on Google.",
@@ -89,6 +92,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "ai-and-automation",
     brand: "services",
+    kind: "custom",
     name: "AI & automation",
     status: "available",
     summary: "Practical AI features and automations that save your team real hours, tested honestly.",
@@ -111,6 +115,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "apis-and-backend",
     brand: "services",
+    kind: "custom",
     name: "APIs, backend & fixes",
     status: "available",
     summary: "Backends, databases, integrations, and fixing or speeding up software you already have.",
@@ -130,11 +135,23 @@ export const PROJECTS: Project[] = [
     ],
     tech: ["Node.js", "PostgreSQL", "Hasura", "GraphQL"],
   },
-
+  {
+    slug: "sample-farm-manager",
+    brand: "services",
+    kind: "ready-made",
+    name: "Sample: Farm manager",
+    status: "in-progress",
+    summary: "A ready-made app for small farms: animals, production, expenses and reports.",
+    problem: "Small farms can't afford fully custom software but still need good records.",
+    vision: "A simple, affordable app any small farm can start using in a day.",
+    idea: "Turn lessons from custom farm projects into one tool with sensible defaults.",
+    features: ["Animal records", "Daily production", "Expenses", "Monthly reports"],
+    sample: true,
+  },
 ];
 
-export function projectsFor(brand: BrandId): Project[] {
-  return PROJECTS.filter((p) => p.brand === brand);
+export function projectsFor(brand: BrandId, kind?: "custom" | "ready-made"): Project[] {
+  return PROJECTS.filter((p) => p.brand === brand && (!kind || (p.kind ?? "custom") === kind));
 }
 
 export function getProject(brand: BrandId, slug: string): Project | undefined {
