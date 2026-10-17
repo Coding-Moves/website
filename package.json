@@ -7,6 +7,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/logos.mjs",
     "build": "next build",
+    "postbuild": "node scripts/strip-root-preconnect.mjs",
     "start": "npx serve out",
     "typecheck": "tsc --noEmit"
   },
