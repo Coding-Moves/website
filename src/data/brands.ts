@@ -224,7 +224,7 @@ export const BRANDS: Brand[] = [
         "What your business does",
         "What you use today (paper, Excel, an old app…)",
         "What you want to be easier",
-        "Rough budget and timeline, if you have one",
+        "When you need it by, if you have a date",
       ],
     },
     terms: [
@@ -234,7 +234,7 @@ export const BRANDS: Brand[] = [
     privacy: [
       {
         heading: "Contact messages",
-        body: ["The Services contact form collects your name, email, chosen topic and message. You can also give us a phone number and rough budget, and choose how we reach you. We use this information only to reply. Netlify Forms handles submissions for us."],
+        body: ["The Services contact form collects your name, email, chosen topic and message. You can also give us a phone number and choose how we reach you. We use this information only to reply. Netlify Forms handles submissions for us."],
       },
       PRIVACY_SECTIONS[1],
     ],

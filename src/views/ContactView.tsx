@@ -107,16 +107,6 @@ export default function ContactView({ brand }: { brand: Brand }) {
                 ))}
               </select>
             </div>
-            {c.variant === "detailed" && (
-              <div className="field">
-                <label htmlFor="budget">Rough budget (optional)</label>
-                <select id="budget" name="budget" defaultValue="Not sure yet">
-                  {["Not sure yet", "Under PKR 50,000", "PKR 50,000 – 150,000", "PKR 150,000 – 500,000", "PKR 500,000+", "Prefer to discuss"].map((budget) => (
-                    <option key={budget}>{budget}</option>
-                  ))}
-                </select>
-              </div>
-            )}
             <div className="field">
               <label htmlFor="message">Message <span aria-hidden="true">*</span></label>
               <textarea id="message" name="message" required placeholder="Tell us what you need help with…" />
