@@ -743,6 +743,25 @@ a.card:hover {
 .field-hint[hidden] {
   display: none;
 }
+.field-error {
+  color: #fda4af;
+  font-size: 13px;
+}
+:root[data-theme="light"] .field-error {
+  color: #be123c;
+}
+.field-error[hidden] {
+  display: none;
+}
+.field-suggestion {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
 .contact-method {
   border: 0;
   padding: 0;
@@ -786,6 +805,9 @@ a.card:hover {
 .field textarea {
   min-height: 150px;
   resize: vertical;
+}
+.field [aria-invalid="true"] {
+  border-color: #fb7185;
 }
 .field input:focus,
 .field select:focus,
