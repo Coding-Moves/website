@@ -455,6 +455,12 @@ a.card:hover {
   font-size: 14px;
   color: var(--accent-text);
 }
+.service-card-logo {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  object-fit: contain;
+}
 
 /* brand directory on the main home */
 .brand-card {
