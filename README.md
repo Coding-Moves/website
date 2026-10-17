@@ -60,7 +60,20 @@ netlify link --id d947983b-41e4-4af9-b63b-7a3bc82040cd
 netlify deploy --prod --dir=out
 ```
 
-Form detection is enabled for this site. After a deploy, verify the seven contact forms in **Netlify → Forms**. Configure email notifications there if needed. Git-based continuous deployment can be connected after the source reaches `main`.
+Netlify reads the exported contact forms during deployment. Follow the notification setup below whenever form fields change. Git-based continuous deployment can be connected when you're ready.
+
+## Contact form emails
+
+In **Netlify → Forms**, enable form detection, then redeploy. Netlify must parse the new form fields from the deployed HTML.
+
+Under **Notifications → Form submission notifications**, add these **Email notification** rules:
+
+| Send to | Form |
+|---|---|
+| `contactmuawia@gmail.com` | Any form |
+| `contactahmadhassann@gmail.com` | `contact-services` |
+
+The notification comes from Netlify and includes the submitted fields, including the customer's email and phone when provided. Replying to the notification goes to the customer because the form field is named `email`. Check the spam folder for the first notification.
 
 When you buy a domain, add it in Netlify → **Domain management**, then change `SITE_URL` in `src/data/site.ts` and redeploy.
 

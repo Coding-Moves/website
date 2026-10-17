@@ -8,11 +8,11 @@ export default function ThanksView({ brand }: { brand: Brand }) {
       <section className="hero">
         <div className="container">
           <p className="eyebrow">Message sent</p>
-          <h1>Thanks, we got it.</h1>
-          <p className="lead">We&apos;ll read your message and reply by email. Meanwhile, feel free to look around.</p>
+          <h1>Thanks, {brand.short} got your message.</h1>
+          <p className="lead">We&apos;ll get back to you soon.</p>
           <div className="hero-actions">
             <Link href={href(brand, "/")} className="btn btn-primary">
-              Back to {brand.short} →
+              Back to {brand.short} home →
             </Link>
           </div>
         </div>

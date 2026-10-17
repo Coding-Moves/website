@@ -62,6 +62,7 @@ export interface Brand {
     principles: { title: string; text: string }[];
   };
   contact: {
+    variant?: "detailed";
     title: string;
     intro: string;
     topics: string[]; // options in the "What is this about?" dropdown
@@ -207,6 +208,7 @@ export const BRANDS: Brand[] = [
       ],
     },
     contact: {
+      variant: "detailed",
       title: "Tell us about your project",
       intro:
         "No tech words needed. Just describe what's hard today and what you'd like to be easier. We'll reply with questions or a rough plan.",
@@ -222,14 +224,20 @@ export const BRANDS: Brand[] = [
         "What your business does",
         "What you use today (paper, Excel, an old app…)",
         "What you want to be easier",
-        "Rough budget and timeline, if you have one",
+        "When you need it by, if you have a date",
       ],
     },
     terms: [
       { heading: "Projects and payment", body: ["We scope and quote each project in writing before work starts. Payment is made in the stages agreed for that project. Changes outside the agreed scope are quoted separately."] },
       { heading: "Code, data and support", body: ["Code ownership is agreed in writing for each project. We keep client data private. Support after handover is agreed separately."] },
     ],
-    privacy: PRIVACY_SECTIONS,
+    privacy: [
+      {
+        heading: "Contact messages",
+        body: ["The Services contact form collects your name, email, chosen topic and message. You can also give us a phone number and choose how we reach you. We use this information only to reply. Netlify Forms handles submissions for us."],
+      },
+      PRIVACY_SECTIONS[1],
+    ],
   },
   {
     id: "lab",
