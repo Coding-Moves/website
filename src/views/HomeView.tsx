@@ -4,7 +4,7 @@ import { SUB_BRANDS, href, isSubBrandHref, logoSrc, type Brand } from "@/data/br
 import { projectsFor } from "@/data/projects";
 import { SITE, SITE_URL } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
-import SubBrandLink from "@/components/SubBrandLink";
+import SubBrandLink, { NewTabIndicator } from "@/components/SubBrandLink";
 import { CtaBand, InProgressNotice, ProjectCard } from "@/components/Bits";
 
 function HeroAction({ brand, action, className }: { brand: Brand; action: { href: string; label: string }; className: string }) {
@@ -58,6 +58,7 @@ export default function HomeView({ brand }: { brand: Brand }) {
                   href={href(b, "/")}
                   className="card brand-card"
                   style={{ "--c": b.accent, "--ct": b.accentSoft, "--cd": b.accentDeep } as CSSProperties}
+                  showIndicator={false}
                 >
                   <div className="brand-card-top">
                     <img src={logoSrc(b)} alt="" width={56} height={56} />
@@ -67,7 +68,7 @@ export default function HomeView({ brand }: { brand: Brand }) {
                     </div>
                   </div>
                   <p>{b.oneLiner}</p>
-                  <span className="card-more">Visit {b.name}</span>
+                  <span className="card-more"><span>Visit {b.name}</span><NewTabIndicator /></span>
                 </SubBrandLink>
               ))}
             </div>

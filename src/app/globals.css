@@ -121,9 +121,9 @@ p {
   flex: none;
 }
 .brand-card .new-tab-indicator {
-  position: absolute;
-  right: 24px;
-  bottom: 26px;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
 }
 
 .container {
@@ -457,6 +457,15 @@ a.card:hover {
   font-weight: 600;
   font-size: 14px;
   color: var(--accent-text);
+}
+.brand-card .card-more {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.brand-card .card-more > span:first-child {
+  min-width: 0;
+  white-space: normal;
 }
 .service-card-logo {
   width: 64px;
