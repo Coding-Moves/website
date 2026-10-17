@@ -1,6 +1,7 @@
 import { href, type Brand } from "@/data/brands";
 import { SERVICES_CONTACT } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
+import ContactFormBehavior from "@/components/ContactFormBehavior";
 import SubBrandLink from "@/components/SubBrandLink";
 
 // Netlify Forms: Netlify finds this form in the built HTML and collects
@@ -57,6 +58,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
           </div>
 
           <form
+            id={formName}
             className="card form"
             name={formName}
             method="POST"
@@ -65,6 +67,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
             netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value={formName} />
+            <ContactFormBehavior formId={formName} brandShort={brand.short} />
             <input type="hidden" name="section" value={brand.name} />
             <p className="hidden">
               <label>
