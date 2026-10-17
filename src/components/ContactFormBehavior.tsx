@@ -68,10 +68,7 @@ export default function ContactFormBehavior({ formId, brandShort }: { formId: st
 
     const setError = (field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, error: string) => {
       const errorElement = document.getElementById(`${formId}-${field.name}-error`);
-      if (errorElement) {
-        errorElement.textContent = error;
-        errorElement.hidden = !error;
-      }
+      if (errorElement && errorElement.textContent !== error) errorElement.textContent = error;
       field.setAttribute("aria-invalid", error ? "true" : "false");
     };
 

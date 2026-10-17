@@ -750,8 +750,15 @@ a.card:hover {
 :root[data-theme="light"] .field-error {
   color: #be123c;
 }
-.field-error[hidden] {
-  display: none;
+.field-error:empty {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }
 .field-suggestion {
   border: 0;
