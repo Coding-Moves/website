@@ -68,31 +68,58 @@ export default function ContactView({ brand }: { brand: Brand }) {
           >
             <input type="hidden" name="form-name" value={formName} />
             <ContactFormBehavior formId={formName} brandShort={brand.short} />
-            <input type="hidden" name="section" value={brand.name} />
             <p className="hidden">
               <label>
                 Don&apos;t fill this in: <input name="bot-field" />
               </label>
             </p>
             <div className="field">
-              <label htmlFor="name">Your name</label>
-              <input id="name" name="name" autoComplete="name" required />
+              <label htmlFor="name">Your name <span aria-hidden="true">*</span></label>
+              <input id="name" name="name" autoComplete="name" placeholder="Your full name" required />
             </div>
             <div className="field">
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" autoComplete="email" required />
+              <label htmlFor="email">Email <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
             </div>
+            {c.variant === "detailed" && (
+              <>
+                <div className="field">
+                  <label htmlFor="phone">WhatsApp / phone (optional)</label>
+                  <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+92 3xx xxxxxxx" aria-describedby={`${formName}-phone-hint`} />
+                  <p id={`${formName}-phone-hint`} className="field-hint" hidden>Please add your number so we can reach you</p>
+                </div>
+                <fieldset className="field contact-method">
+                  <legend>Best way to reach you <span aria-hidden="true">*</span></legend>
+                  <div className="contact-method-options">
+                    <label><input type="radio" name="contact_method" value="Email" defaultChecked required /> Email</label>
+                    <label><input type="radio" name="contact_method" value="WhatsApp" /> WhatsApp</label>
+                    <label><input type="radio" name="contact_method" value="Call" /> Call</label>
+                  </div>
+                </fieldset>
+              </>
+            )}
             <div className="field">
-              <label htmlFor="topic">What is this about?</label>
-              <select id="topic" name="topic" defaultValue={c.topics[0]}>
+              <label htmlFor="topic">What is this about? <span aria-hidden="true">*</span></label>
+              <select id="topic" name="topic" defaultValue="" required>
+                <option value="" disabled>Choose a topic</option>
                 {c.topics.map((t) => (
                   <option key={t}>{t}</option>
                 ))}
               </select>
             </div>
+            {c.variant === "detailed" && (
+              <div className="field">
+                <label htmlFor="budget">Rough budget (optional)</label>
+                <select id="budget" name="budget" defaultValue="Not sure yet">
+                  {["Not sure yet", "Under PKR 50,000", "PKR 50,000 – 150,000", "PKR 150,000 – 500,000", "PKR 500,000+", "Prefer to discuss"].map((budget) => (
+                    <option key={budget}>{budget}</option>
+                  ))}
+                </select>
+              </div>
+            )}
             <div className="field">
-              <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" required placeholder="Tell us in your own words…" />
+              <label htmlFor="message">Message <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required placeholder="Tell us what you need help with…" />
             </div>
             <button type="submit" className="btn btn-primary">
               Send message →

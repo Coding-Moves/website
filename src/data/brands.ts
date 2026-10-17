@@ -231,7 +231,13 @@ export const BRANDS: Brand[] = [
       { heading: "Projects and payment", body: ["We scope and quote each project in writing before work starts. Payment is made in the stages agreed for that project. Changes outside the agreed scope are quoted separately."] },
       { heading: "Code, data and support", body: ["Code ownership is agreed in writing for each project. We keep client data private. Support after handover is agreed separately."] },
     ],
-    privacy: PRIVACY_SECTIONS,
+    privacy: [
+      {
+        heading: "Contact messages",
+        body: ["The Services contact form collects your name, email, chosen topic and message. You can also give us a phone number and rough budget, and choose how we reach you. We use this information only to reply. Netlify Forms handles submissions for us."],
+      },
+      PRIVACY_SECTIONS[1],
+    ],
   },
   {
     id: "lab",

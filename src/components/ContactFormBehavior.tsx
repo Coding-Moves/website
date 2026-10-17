@@ -11,6 +11,8 @@ export default function ContactFormBehavior({ formId, brandShort }: { formId: st
     const name = form.elements.namedItem("name");
     const topic = form.elements.namedItem("topic");
     if (!(name instanceof HTMLInputElement) || !(topic instanceof HTMLSelectElement)) return;
+    const phone = form.elements.namedItem("phone");
+    const phoneHint = document.getElementById(`${formId}-phone-hint`);
 
     const updateSubject = () => {
       if (!subjectRef.current) return;
@@ -19,12 +21,26 @@ export default function ContactFormBehavior({ formId, brandShort }: { formId: st
       subjectRef.current.value = `[${brandShort}] ${selectedTopic}${sender ? ` from ${sender}` : ""}`;
     };
 
-    form.addEventListener("input", updateSubject);
-    form.addEventListener("change", updateSubject);
-    updateSubject();
+    const updatePhoneRequirement = () => {
+      if (!(phone instanceof HTMLInputElement)) return;
+      const method = form.querySelector<HTMLInputElement>('input[name="contact_method"]:checked')?.value;
+      const needsPhone = method === "WhatsApp" || method === "Call";
+      phone.required = needsPhone;
+      phone.setCustomValidity(needsPhone && !phone.value.trim() ? "Please add your number so we can reach you" : "");
+      if (phoneHint) phoneHint.hidden = !needsPhone || Boolean(phone.value.trim());
+    };
+
+    const update = () => {
+      updateSubject();
+      updatePhoneRequirement();
+    };
+
+    form.addEventListener("input", update);
+    form.addEventListener("change", update);
+    update();
     return () => {
-      form.removeEventListener("input", updateSubject);
-      form.removeEventListener("change", updateSubject);
+      form.removeEventListener("input", update);
+      form.removeEventListener("change", update);
     };
   }, [formId, brandShort]);
 
