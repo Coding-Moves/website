@@ -157,7 +157,7 @@ main {
   z-index: 50;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
   border-bottom: 1px solid var(--border);
 }
 .header-inner {
@@ -473,13 +473,15 @@ a.card:hover {
 .brand-card-top img {
   width: 56px;
   height: 56px;
+  flex: none;
 }
 .brand-card-top small {
   display: block;
   font-size: 12px;
   color: var(--text-2);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }
 
 /* steps */
