@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Coding Moves Open Source logo">
+  <title>Coding Moves Open Source</title>
+  <defs>
+    <linearGradient id="open-source-tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16233F"/>
+      <stop offset="1" stop-color="#060B16"/>
+    </linearGradient>
+    <linearGradient id="open-source-rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A7F3D0" stop-opacity=".45"/>
+      <stop offset=".5" stop-color="#10B981" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="open-source-shine">
+      <stop offset="0" stop-color="#fff" stop-opacity=".09"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="open-source-face" x1="116" y1="130" x2="332" y2="382" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#A7F3D0"/>
+      <stop offset=".45" stop-color="#10B981"/>
+      <stop offset="1" stop-color="#065F46"/>
+    </linearGradient>
+    <linearGradient id="open-source-chev" x1="300" y1="0" x2="404" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6EE7B7"/>
+      <stop offset="1" stop-color="#14B8A6"/>
+    </linearGradient>
+    <linearGradient id="open-source-badge" x1="0" y1="-70" x2="0" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#10B981"/>
+      <stop offset="1" stop-color="#065F46"/>
+    </linearGradient>
+    <filter id="open-source-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+  </defs>
+  <g transform="translate(244 244) scale(.84) translate(-262 -262)">
+    <!-- soft glow behind the mark -->
+    <path d="M332,193 L224,130 L116,193 L116,319 L224,382 L332,319" fill="none" stroke="#10B981" stroke-opacity=".45" stroke-width="64" filter="url(#open-source-glow)"/>
+    <!-- 3D extrusion (the "side" of the block) -->
+    <path d="M332,193 L224,130 L116,193 L116,319 L224,382 L332,319" transform="translate(9 13)" fill="none" stroke="#065F46" stroke-width="58" stroke-linejoin="miter"/>
+    <path d="M300,214 L342,256 L300,298" transform="translate(6 9)" fill="none" stroke="#065F46" stroke-width="30" stroke-linejoin="miter"/>
+    <path d="M362,214 L404,256 L362,298" transform="translate(6 9)" fill="none" stroke="#065F46" stroke-width="30" stroke-linejoin="miter"/>
+    <!-- front face -->
+    <path d="M332,193 L224,130 L116,193 L116,319 L224,382 L332,319" fill="none" stroke="url(#open-source-face)" stroke-width="58" stroke-linejoin="miter"/>
+    <!-- top highlight line for the metallic edge -->
+    <path d="M318,185 L224,130 L130,185" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4" stroke-linejoin="miter" transform="translate(0 -24)"/>
+    <path d="M300,214 L342,256 L300,298" fill="none" stroke="url(#open-source-chev)" stroke-width="30" stroke-linejoin="miter"/>
+    <path d="M362,214 L404,256 L362,298" fill="none" stroke="url(#open-source-chev)" stroke-width="30" stroke-linejoin="miter"/>
+  </g>
+  <g transform="translate(388 388)">
+    <circle r="86" fill="none"/>
+    <circle r="70" fill="url(#open-source-badge)"/>
+    <circle r="70" fill="none" stroke="#A7F3D0" stroke-opacity=".55" stroke-width="3"/>
+    <g transform="translate(-30 -30) scale(1.25)" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="10" r="4.5"/><circle cx="14" cy="38" r="4.5"/><circle cx="34" cy="16" r="4.5"/><path d="M14 14.5v19"/><path d="M34 20.5c0 9-20 6-20 13"/></g>
+  </g>
+</svg>
