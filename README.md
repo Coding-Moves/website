@@ -9,6 +9,7 @@
 | Lab | `/lab/` | `/lab/about/` | `/lab/contact/` | `/lab/<slug>/` |
 | Open Source | `/open-source/` | `/open-source/about/` | `/open-source/contact/` | `/open-source/<slug>/` |
 | Research *(in progress)* | `/research/` | … | … | `/research/<slug>/` |
+| Academy *(in progress)* | `/academy/` | … | … | `/academy/<slug>/` |
 
 ## Run it
 

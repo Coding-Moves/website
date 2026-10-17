@@ -33,6 +33,9 @@ export default function HomeView({ brand }: { brand: Brand }) {
               {h.secondaryCta && (
                 <HeroAction brand={brand} action={h.secondaryCta} className="btn btn-ghost" />
               )}
+              {brand.id === "academy" && SITE.youtubeUrl && (
+                <SubBrandLink href={SITE.youtubeUrl} className="btn btn-ghost">Watch on YouTube</SubBrandLink>
+              )}
             </div>
             <InProgressNotice brand={brand} />
           </div>

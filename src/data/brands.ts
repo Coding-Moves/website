@@ -12,6 +12,7 @@ export type BrandId =
   | "services"
   | "lab"
   | "open-source"
+  | "academy"
   | "research";
 
 export type BrandStatus = "live" | "in-progress";
@@ -364,6 +365,55 @@ export const BRANDS: Brand[] = [
     },
     terms: [
       { heading: "Repositories and contributions", body: ["Each repository's own licence applies to its code. Contributions are made under that licence and should follow that repository's code of conduct."] },
+    ],
+    privacy: PRIVACY_SECTIONS,
+  },
+  {
+    id: "academy",
+    name: "Coding Moves Academy",
+    short: "Academy",
+    path: "/academy",
+    status: "in-progress",
+    accent: "#F43F5E",
+    accentSoft: "#FDA4AF",
+    accentDeep: "#BE123C",
+    onAccent: "#ffffff",
+    oneLiner: "We teach what we learn: tutorials, courses and videos.",
+    seoDescription: "Coding Moves Academy shares practical tutorials, beginner courses and videos that teach software by building it.",
+    home: {
+      eyebrow: "Coding Moves Academy",
+      title: "Learn by building, step by step.",
+      intro: "We share what we learn while building software. Start with a short guide, follow a beginner course, or watch a project take shape on video.",
+      primaryCta: { label: "Suggest a lesson", href: "/academy/contact/" },
+      pointsTitle: "Ways to learn",
+      points: [
+        { title: "Tutorials", text: "Short, practical guides you can try right away." },
+        { title: "Courses", text: "Step-by-step paths for beginners, with room to practice." },
+        { title: "Videos", text: "Walkthroughs and project builds on YouTube." },
+      ],
+    },
+    about: {
+      title: "About Coding Moves Academy",
+      intro: "We teach what we learn, one useful lesson at a time.",
+      vision: "Make it easier for beginners to learn by building real things.",
+      story: [
+        "A good explanation can save someone hours. We want to share the steps, mistakes and decisions behind the software we build.",
+        "Tutorials, short courses and videos are in progress. We'll publish them when they're useful enough to follow.",
+      ],
+      principles: [
+        { title: "Start small", text: "One clear step before the next one." },
+        { title: "Show the work", text: "Real examples, including the parts that took a second try." },
+        { title: "Keep it friendly", text: "Questions are welcome, especially beginner ones." },
+      ],
+    },
+    contact: {
+      title: "Talk to the Academy",
+      intro: "Suggest something you'd like to learn, ask about a course, or tell us how we can make a guide clearer.",
+      topics: ["Suggest a tutorial", "Course interest", "Collaboration", "Something else"],
+      helpful: ["What you'd like to learn", "Your starting point", "Any example that would help"],
+    },
+    terms: [
+      { heading: "Learning resources in progress", body: ["Tutorials and courses are being prepared. Any future course details and terms will be shared before enrolment opens."] },
     ],
     privacy: PRIVACY_SECTIONS,
   },
