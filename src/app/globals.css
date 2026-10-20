@@ -433,6 +433,21 @@ main {
   color: var(--text-2);
   font-size: 15px;
 }
+.repository-card {
+  display: flex;
+  flex-direction: column;
+}
+.repository-area {
+  color: var(--accent-text);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.repository-card .card-more,
+.repository-card .repository-private {
+  margin-top: auto;
+  padding-top: 18px;
+}
 .card .dot {
   width: 10px;
   height: 10px;
