@@ -237,6 +237,18 @@ export const PROJECTS: Project[] = [
   },
   // ───────── Lab ─────────
   {
+    slug: "qirat",
+    brand: "lab",
+    name: "Qirat",
+    status: "idea",
+    summary: "An early idea for AI-assisted Quran memorization practice; no app is built yet.",
+    problem: "Learners practising alone may want timely feedback and a clear record of their memorization progress.",
+    vision: "Explore whether careful recitation feedback can support learners alongside guidance from a teacher.",
+    idea: "Investigate recitation review and progress tracking, then evaluate feedback accuracy and audio privacy before any release.",
+    features: ["Proposed recitation review", "Proposed mistake feedback", "Proposed Hifz progress tracking"],
+    repositoryName: "Qirat",
+  },
+  {
     slug: "maya",
     brand: "lab",
     name: "Maya Assistant",
