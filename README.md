@@ -76,6 +76,8 @@ The existing **Notifications → Form submission notifications** rules cover the
 | `contactmuawia@gmail.com` | Any form |
 | `contactahmadhassann@gmail.com` | `contact-services` |
 
+Notification subjects are configured in Netlify: “New Coding Moves message” for the owner and “New Services inquiry” for the Services recipient. Keep the forms free of a `subject` field: Netlify includes that field in the email body as well, which repeats the subject line.
+
 The notification comes from Netlify and includes the submitted fields, including the customer's email and phone when provided. Replying to the notification goes to the customer because the form field is named `email`. Check the spam folder for the first notification.
 
 When you buy a domain, add it in Netlify → **Domain management**, then change `SITE_URL` in `src/data/site.ts` and redeploy.
