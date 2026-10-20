@@ -93,7 +93,8 @@ export default function ContactView({ brand }: { brand: Brand }) {
               <>
                 <div className="field">
                   <label htmlFor="phone">Phone or WhatsApp (optional)</label>
-                  <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Add a number if you prefer a call or WhatsApp" maxLength={30} />
+                  <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Add a number if you prefer a call or WhatsApp" maxLength={30} aria-describedby={`${formName}-phone-error`} />
+                  <p id={`${formName}-phone-error`} className="field-error" aria-live="polite" aria-atomic="true" />
                 </div>
               </>
             )}

@@ -23,10 +23,12 @@ export default function ContactFormBehavior({ formId, queryTopics }: { formId: s
     const message = form.elements.namedItem("message");
     if (!(name instanceof HTMLInputElement) || !(email instanceof HTMLInputElement) || !(topic instanceof HTMLSelectElement) || !(message instanceof HTMLTextAreaElement)) return;
 
+    const phoneElement = form.elements.namedItem("phone");
+    const phone = phoneElement instanceof HTMLInputElement ? phoneElement : null;
     const emailTypo = document.getElementById(`${formId}-email-typo`);
     const emailFix = form.querySelector<HTMLButtonElement>(`#${formId}-email-fix`);
     const submitButton = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-    const fields = [name, email, message];
+    const fields = [name, email, ...(phone ? [phone] : []), message];
     const touched = new Set<string>();
     let submitted = false;
     let suggestedEmail = "";
@@ -54,6 +56,11 @@ export default function ContactFormBehavior({ formId, queryTopics }: { formId: s
           break;
         case "email":
           if (!EMAIL_PATTERN.test(value) || email.validity.typeMismatch) error = "Please enter a valid email, like name@gmail.com.";
+          break;
+        case "phone":
+          if (value && (!/^\+?[\d() .-]+$/.test(value) || !/^\d{7,15}$/.test(value.replace(/\D/g, "")))) {
+            error = "Please enter a phone number with 7–15 digits, or leave it blank.";
+          }
           break;
         case "message":
           if (Array.from(value).length < 10) error = "Please tell us a little more (at least 10 characters).";
