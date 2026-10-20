@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { href, logoSrc, type Brand } from "@/data/brands";
 import type { Project } from "@/data/projects";
+import { repositoryByName } from "@/data/repositories";
 import BrandShell from "@/components/BrandShell";
 import SubBrandLink from "@/components/SubBrandLink";
 import { CtaBand, PlatformBadges, SampleBadge, StatusBadge } from "@/components/Bits";
@@ -8,6 +9,7 @@ import { CtaBand, PlatformBadges, SampleBadge, StatusBadge } from "@/components/
 export default function ProjectView({ brand, project: p }: { brand: Brand; project: Project }) {
   const isService = p.brand === "services" && p.status === "available";
   const isPrivate = p.brand === "products" && p.platforms?.includes("private");
+  const repository = p.repositoryName ? repositoryByName(p.repositoryName) : undefined;
   const contactPath = href(brand, "/contact/");
   const contactHref = p.contactTopic ? `${contactPath}?topic=${encodeURIComponent(p.contactTopic)}` : contactPath;
   return (
@@ -47,8 +49,8 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
                   Try it →
                 </a>
               )}
-              {p.repoUrl && (
-                <a href={p.repoUrl} className="btn btn-ghost">
+              {repository?.visibility === "public" && (
+                <a href={repository.url} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
                   View the code
                 </a>
               )}
@@ -58,6 +60,7 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
                 </Link>
               )}
             </div>
+            {repository?.visibility === "private" && <p className="notice" role="note">Only the owner can see this repository.</p>}
           </div>
           {p.brand === "services" && (
             <div className="hero-art">

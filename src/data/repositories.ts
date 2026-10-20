@@ -145,11 +145,6 @@ export const REPOSITORIES: Repository[] = [
   },
 ];
 
-export function publicRepositoryUrl(name: string): string | undefined {
-  const repository = REPOSITORIES.find((item) => item.name === name);
-  return repository?.visibility === "public" ? repository.url : undefined;
-}
-
 export function repositoryByName(name: string): Repository | undefined {
   return REPOSITORIES.find((item) => item.name === name);
 }

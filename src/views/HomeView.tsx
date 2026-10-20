@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { SUB_BRANDS, getBrand, href, isSubBrandHref, logoSrc, type Brand } from "@/data/brands";
-import { projectsFor } from "@/data/projects";
+import { projectForRepository, projectsFor } from "@/data/projects";
 import { repositoriesFor } from "@/data/repositories";
 import { SITE, SITE_URL } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
@@ -158,13 +158,15 @@ export default function HomeView({ brand }: { brand: Brand }) {
               <p>Public source has a GitHub link. Private source is marked clearly without a link.</p>
             </div>
             <div className="grid">
-              {repositories.map((repository) => (
-                <div className="card repository-card" key={repository.name}>
+              {repositories.map((repository) => {
+                const project = projectForRepository(repository.name);
+                return <div className="card repository-card" key={repository.name}>
                   <span className="repository-area">
                     {repository.areas.map((area) => area === "main" ? "Organization" : getBrand(area)?.short).join(" · ")}
                   </span>
                   <h3>{repository.title}</h3>
                   <p>{repository.summary}</p>
+                  {project && <Link className="card-more" href={href(getBrand(project.brand)!, `/${project.slug}/`)}>Read overview →</Link>}
                   {repository.visibility === "public" ? (
                     <a className="card-more" href={repository.url} target="_blank" rel="noopener noreferrer">
                       View repository ↗
@@ -172,8 +174,8 @@ export default function HomeView({ brand }: { brand: Brand }) {
                   ) : (
                     <p className="repository-private" role="note">Only the owner can see this repository.</p>
                   )}
-                </div>
-              ))}
+                </div>;
+              })}
             </div>
           </div>
         </section>
