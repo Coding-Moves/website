@@ -9,6 +9,9 @@ import SubBrandLink from "@/components/SubBrandLink";
 export default function ContactView({ brand }: { brand: Brand }) {
   const c = brand.contact;
   const formName = `contact-${brand.id}`;
+  const replyNote = c.variant === "detailed"
+    ? "We'll reply by email, usually within 1–2 working days. If you prefer a call or WhatsApp, include your number and say so in your message."
+    : "We'll reply by email, usually within 1–2 working days.";
   return (
     <BrandShell brand={brand} page="contact">
       <section className="hero">
@@ -67,7 +70,7 @@ export default function ContactView({ brand }: { brand: Brand }) {
             netlify-honeypot="bot-field"
           >
             <input type="hidden" name="form-name" value={formName} />
-            <ContactFormBehavior formId={formName} brandShort={brand.short} queryTopics={c.queryTopics} />
+            <ContactFormBehavior formId={formName} queryTopics={c.queryTopics} />
             <p className="hidden">
               <label>
                 Don&apos;t fill this in: <input name="bot-field" />
@@ -89,40 +92,29 @@ export default function ContactView({ brand }: { brand: Brand }) {
             {c.variant === "detailed" && (
               <>
                 <div className="field">
-                  <label htmlFor="phone">WhatsApp / phone</label>
-                  <input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+92 3xx xxxxxxx" aria-describedby={`${formName}-phone-hint ${formName}-phone-error`} />
-                  <p id={`${formName}-phone-hint`} className="field-hint" hidden>Please add your number so we can reach you</p>
-                  <p id={`${formName}-phone-error`} className="field-error" aria-live="polite" aria-atomic="true" />
+                  <label htmlFor="phone">Phone or WhatsApp (optional)</label>
+                  <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Add a number if you prefer a call or WhatsApp" maxLength={30} />
                 </div>
-                <fieldset className="field contact-method">
-                  <legend>Best way to reach you <span aria-hidden="true">*</span></legend>
-                  <div className="contact-method-options">
-                    <label><input type="radio" name="contact_method" value="Email" defaultChecked required /> Email</label>
-                    <label><input type="radio" name="contact_method" value="WhatsApp" /> WhatsApp</label>
-                    <label><input type="radio" name="contact_method" value="Call" /> Call</label>
-                  </div>
-                </fieldset>
               </>
             )}
             <div className="field">
-              <label htmlFor="topic">What do you need? <span aria-hidden="true">*</span></label>
-              <select id="topic" name="topic" defaultValue="" required aria-describedby={`${formName}-topic-error`}>
-                <option value="" disabled>Choose a topic</option>
+              <label htmlFor="topic">{c.variant === "detailed" ? "Project type" : "Topic"} (optional)</label>
+              <select id="topic" name="topic" defaultValue="">
+                <option value="">Choose if you know</option>
                 {c.topics.map((t) => (
                   <option key={t}>{t}</option>
                 ))}
               </select>
-              <p id={`${formName}-topic-error`} className="field-error" aria-live="polite" aria-atomic="true" />
             </div>
             <div className="field">
-              <label htmlFor="message">Message <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" required minLength={10} aria-describedby={`${formName}-message-error`} placeholder="Tell us what you need help with…" />
+              <label htmlFor="message">{c.variant === "detailed" ? "Tell us about your project" : "Your message"} <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required minLength={10} aria-describedby={`${formName}-message-error`} placeholder={c.variant === "detailed" ? "What does your business do, and what would you like to make easier?" : "Tell us what you need help with…"} />
               <p id={`${formName}-message-error`} className="field-error" aria-live="polite" aria-atomic="true" />
             </div>
             <button type="submit" className="btn btn-primary">
               Send message →
             </button>
-            <p className="fineprint">We&apos;ll reply by email (or WhatsApp if you choose it), usually within 1–2 working days.</p>
+            <p className="fineprint">{replyNote}</p>
           </form>
         </div>
       </section>

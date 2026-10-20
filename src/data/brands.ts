@@ -22,7 +22,7 @@ export type LegalSection = { heading: string; body: string[] };
 const PRIVACY_SECTIONS: LegalSection[] = [
   {
     heading: "Contact messages",
-    body: ["The contact form collects your name, email, chosen topic and message only so we can reply. Netlify Forms handles submissions for us."],
+    body: ["The contact form collects your name, email and message, plus an optional topic. We use them to reply. Netlify Forms handles submissions for us."],
   },
   {
     heading: "Your information",
@@ -240,9 +240,10 @@ export const BRANDS: Brand[] = [
     privacy: [
       {
         heading: "Contact messages",
-        body: ["The Services contact form collects your name, email, chosen topic and message. You can also give us a phone number and choose how we reach you. We use this information only to reply. Netlify Forms handles submissions for us."],
+        body: ["The Services contact form collects your name, email and message. Project type and phone number are optional. We use this information to reply. Netlify Forms handles submissions for us."],
       },
       PRIVACY_SECTIONS[1],
+      PRIVACY_SECTIONS[2],
     ],
   },
   {
