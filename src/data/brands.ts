@@ -320,12 +320,12 @@ export const BRANDS: Brand[] = [
     onAccent: "#03170F",
     oneLiner: "Code we share, and code we help improve.",
     seoDescription:
-      "Coding Moves Open Source: public projects, developer tools and contributions to other open-source projects. Free to use, learn from and improve.",
+      "Coding Moves Open Source: public projects, developer tools and community learning. Check each repository's license for reuse terms.",
     home: {
       eyebrow: "Coding Moves Open Source",
       title: "Code we share, and code we help improve.",
       intro:
-        "Some of our work is public so anyone can use it, learn from it, or make it better. We also contribute fixes and documentation to open-source projects we rely on.",
+        "We share tools and learning projects in public. Check each repository's license and contribution guidance before reusing code or sending changes.",
       primaryCta: { label: "Browse projects", href: "#work" },
       secondaryCta: { label: "Contribute with us", href: "/open-source/contact/" },
       pointsTitle: "What you'll find here",
@@ -354,7 +354,7 @@ export const BRANDS: Brand[] = [
       story: [
         "Open source taught most of us how to code. Sharing our own tools and fixing things in other projects is how we say thanks.",
         "We only publish code we're allowed to share. Client work stays private unless the client agrees.",
-        "Every public repo should have a clear README, a licence and an easy first step for new contributors.",
+        "We aim for clear READMEs and license terms. The beginner Python challenge is public while reuse terms for outside contributions are still being resolved.",
       ],
       principles: [
         { title: "Welcoming", text: "Beginners are welcome; we explain, not gatekeep." },

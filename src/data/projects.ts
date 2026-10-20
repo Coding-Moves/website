@@ -4,6 +4,7 @@
 // Entries with `sample: true` are placeholders — replace or delete them before launch.
 
 import type { BrandId } from "./brands";
+import { publicRepositoryUrl } from "./repositories";
 
 export type ProjectStatus =
   | "available" // a service you can order today
@@ -185,6 +186,20 @@ export const PROJECTS: Project[] = [
   },
   // ───────── Products ─────────
   {
+    slug: "one-concept",
+    brand: "products",
+    name: "One Concept",
+    status: "live",
+    platforms: ["android"],
+    summary: "A short technical concept each day, with examples, reminders and a learning streak.",
+    problem: "It is hard to keep learning when every lesson feels too long to fit into the day.",
+    vision: "Make steady technical learning possible in a few minutes a day.",
+    idea: "Deliver one focused concept with a concrete example, then let learners track what they have learned.",
+    features: ["One new concept each day", "Short explanations with examples", "Optional reminders", "Streaks and learning history"],
+    repoUrl: publicRepositoryUrl("one-concept"),
+    downloadUrl: "https://github.com/Coding-Moves/one-concept/releases/download/apk-latest/one-concept.apk",
+  },
+  {
     slug: "farm-manager",
     brand: "products",
     name: "Farm Manager",
@@ -222,27 +237,28 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "maya",
-    brand: "products",
-    name: "Maya",
+    brand: "lab",
+    name: "Maya Assistant",
     status: "prototype",
-    platforms: ["private"],
-    summary: "A study assistant that spots quiz and assignment dates in group chats and reminds you.",
-    problem: "Important class dates can disappear in a long group chat before you have time to add them to your calendar.",
-    vision: "Students get a calm reminder of upcoming work without rereading every message.",
-    idea: "With permission, Maya looks for dates in selected chats, lets you confirm what it found, and reminds you before a deadline.",
-    features: ["Quiz and assignment date suggestions", "Review before saving", "Deadline reminders", "Private invite-only access"],
+    summary: "An experimental WhatsApp study assistant; deadline reminders are planned.",
+    problem: "Class updates get buried in busy group chats.",
+    vision: "Help students keep track of useful information from their chats.",
+    idea: "Explore a personal assistant that processes selected messages with the user's permission.",
+    features: ["WhatsApp message processing prototype", "Personal assistant experiments", "Reminder workflow planned"],
+    repoUrl: publicRepositoryUrl("maya-assistant"),
   },
   {
     slug: "diskern",
-    brand: "products",
+    brand: "open-source",
     name: "Diskern",
-    status: "idea",
-    platforms: ["desktop"],
-    summary: "A safe disk cleaner that explains every action before it happens.",
+    status: "live",
+    summary: "A desktop disk cleaner that explains its findings and lets you review changes before cleanup.",
     problem: "Disk cleanup tools can be hard to trust when they ask to delete files without saying what they are or why it is safe.",
     vision: "Free up space while staying in control of every change.",
-    idea: "Show what could be cleaned, explain each item in plain words, and ask before removing anything.",
-    features: ["Clear cleanup preview", "Plain-word explanations", "Choose what to keep", "Confirmation before deletion"],
+    idea: "Use auditable rules to assess files, explain the evidence, and move selected items to a reviewable quarantine.",
+    features: ["Read-only scans by default", "Evidence behind every finding", "Reviewable quarantine instead of hard deletion", "Separate purge step"],
+    repoUrl: publicRepositoryUrl("diskern"),
+    demoUrl: "https://coding-moves.github.io/diskern/",
   },
 ];
 
