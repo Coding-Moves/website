@@ -27,6 +27,7 @@ npm run build      # static site in /out
 src/data/site.ts       ← site URL, GitHub, email (change SITE_URL when you buy the domain)
 src/data/brands.ts     ← every brand: name, colours, all page text
 src/data/projects.ts   ← every project / service page (vision, problem, idea, features)
+src/data/repositories.ts ← repository catalog, section, visibility and public GitHub URL
 scripts/logos.mjs      ← the logo system: one master mark → all child logos
 scripts/og-images.py   ← social preview images (optional, needs Python + Playwright)
 src/views/             ← page templates shared by all brands
@@ -39,6 +40,8 @@ public/logos/          ← generated SVG logos (<id>.svg tile, <id>-mark.svg no 
 **Add a project or service page.** Copy an entry in `src/data/projects.ts`, change `brand`, `slug` and the text. Entries with `sample: true` are placeholders: replace or delete them (they are hidden from Google until then).
 
 **Add a Products app.** Use `brand: "products"` and set its `platforms` (Android, iOS, web, desktop or private). Store, web and download URLs are optional; buttons appear only when a URL is set. Private apps show a request-access link.
+
+**Update the repository catalog.** Add or edit an entry in `src/data/repositories.ts` with its Coding Moves `areas` and current GitHub visibility. A repository may appear in several areas. Public entries have an explicit GitHub URL; private entries have no URL and render “Only the owner can see this repository.” The main homepage lists every entry, and area homepages list entries assigned to that area. Being public does not itself grant reuse rights: check each repository's license. Recheck GitHub visibility before changing an entry from private to public.
 
 **Add a new brand** (e.g. Team, Media):
 1. Add it to `BRANDS` in `src/data/brands.ts` (`status: "in-progress"` until ready).
