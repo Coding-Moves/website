@@ -1,7 +1,8 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { SUB_BRANDS, href, isSubBrandHref, logoSrc, type Brand } from "@/data/brands";
-import { projectsFor } from "@/data/projects";
+import { SUB_BRANDS, getBrand, href, isSubBrandHref, logoSrc, type Brand } from "@/data/brands";
+import { projectForRepository, projectsFor } from "@/data/projects";
+import { repositoriesFor } from "@/data/repositories";
 import { SITE, SITE_URL } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
 import SubBrandLink, { NewTabIndicator } from "@/components/SubBrandLink";
@@ -17,7 +18,17 @@ function HeroAction({ brand, action, className }: { brand: Brand; action: { href
 export default function HomeView({ brand }: { brand: Brand }) {
   const h = brand.home;
   const items = projectsFor(brand.id);
+  const repositories = repositoriesFor(brand.id);
   const isMain = brand.id === "main";
+  const repositoryHeading = {
+    main: "Explore our repositories",
+    services: "Repositories",
+    lab: "Lab repositories",
+    "open-source": "Public repositories",
+    products: "Product source",
+    research: "Research repositories",
+    academy: "Learning repositories",
+  }[brand.id];
 
   return (
     <BrandShell brand={brand} page="home">
@@ -112,7 +123,7 @@ export default function HomeView({ brand }: { brand: Brand }) {
         </section>
       )}
 
-      {h.itemsTitle && (
+      {h.itemsTitle && (items.length > 0 || repositories.length === 0) && (
         <section className="section" id="work" aria-labelledby="items">
           <div className="container">
             <div className="section-head">
@@ -131,6 +142,41 @@ export default function HomeView({ brand }: { brand: Brand }) {
                 <p>The first pieces are on their way. Check back soon.</p>
               </div>
             )}
+          </div>
+        </section>
+      )}
+
+      {repositories.length > 0 && (
+        <section
+          className="section"
+          id={h.itemsTitle && items.length === 0 ? "work" : "repositories"}
+          aria-labelledby="repositories-heading"
+        >
+          <div className="container">
+            <div className="section-head">
+              <h2 id="repositories-heading">{repositoryHeading}</h2>
+              <p>Public source has a GitHub link. Private source is marked clearly without a link.</p>
+            </div>
+            <div className="grid">
+              {repositories.map((repository) => {
+                const project = projectForRepository(repository.name);
+                return <div className="card repository-card" key={repository.name}>
+                  <span className="repository-area">
+                    {repository.areas.map((area) => area === "main" ? "Organization" : getBrand(area)?.short).join(" · ")}
+                  </span>
+                  <h3>{repository.title}</h3>
+                  <p>{repository.summary}</p>
+                  {project && <Link className="card-more" href={href(getBrand(project.brand)!, `/${project.slug}/`)}>Read overview →</Link>}
+                  {repository.visibility === "public" ? (
+                    <a className="card-more" href={repository.url} target="_blank" rel="noopener noreferrer">
+                      View repository ↗
+                    </a>
+                  ) : (
+                    <p className="repository-private" role="note">Only the owner can see this repository.</p>
+                  )}
+                </div>;
+              })}
+            </div>
           </div>
         </section>
       )}

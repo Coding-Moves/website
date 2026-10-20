@@ -9,8 +9,8 @@
 | Lab | `/lab/` | `/lab/about/` | `/lab/contact/` | `/lab/<slug>/` |
 | Open Source | `/open-source/` | `/open-source/about/` | `/open-source/contact/` | `/open-source/<slug>/` |
 | Products | `/products/` | `/products/about/` | `/products/contact/` | `/products/<slug>/` |
-| Research *(in progress)* | `/research/` | … | … | `/research/<slug>/` |
-| Academy *(in progress)* | `/academy/` | … | … | `/academy/<slug>/` |
+| Research | `/research/` | `/research/about/` | `/research/contact/` | `/research/<slug>/` |
+| Academy | `/academy/` | `/academy/about/` | `/academy/contact/` | `/academy/<slug>/` |
 
 ## Run it
 
@@ -27,6 +27,7 @@ npm run build      # static site in /out
 src/data/site.ts       ← site URL, GitHub, email (change SITE_URL when you buy the domain)
 src/data/brands.ts     ← every brand: name, colours, all page text
 src/data/projects.ts   ← every project / service page (vision, problem, idea, features)
+src/data/repositories.ts ← repository catalog, section, visibility and public GitHub URL
 scripts/logos.mjs      ← the logo system: one master mark → all child logos
 scripts/og-images.py   ← social preview images (optional, needs Python + Playwright)
 src/views/             ← page templates shared by all brands
@@ -40,6 +41,8 @@ public/logos/          ← generated SVG logos (<id>.svg tile, <id>-mark.svg no 
 
 **Add a Products app.** Use `brand: "products"` and set its `platforms` (Android, iOS, web, desktop or private). Store, web and download URLs are optional; buttons appear only when a URL is set. Private apps show a request-access link.
 
+**Update the repository catalog.** Add or edit an entry in `src/data/repositories.ts` with its Coding Moves `areas` and current GitHub visibility. A repository may appear in several areas. Public entries have an explicit GitHub URL; private entries have no URL and render “Only the owner can see this repository.” The main homepage lists every entry, and area homepages list entries assigned to that area. Project pages refer to repositories by `repositoryName`, so source links and private notices use this single catalog. Being public does not itself grant reuse rights: check each repository's license. Recheck GitHub visibility before changing an entry from private to public.
+
 **Add a new brand** (e.g. Team, Media):
 1. Add it to `BRANDS` in `src/data/brands.ts` (`status: "in-progress"` until ready).
 2. Add its colours + badge icon to `VARIANTS` in `scripts/logos.mjs`, then `npm run logos`.
@@ -49,9 +52,9 @@ public/logos/          ← generated SVG logos (<id>.svg tile, <id>-mark.svg no 
 
 ## Deploy to Netlify
 
-Production site: [codingmoves.netlify.app](https://codingmoves.netlify.app). Netlify builds with `npm run build` and publishes `out`, as configured in `netlify.toml`.
+Production site: [codingmoves.netlify.app](https://codingmoves.netlify.app). The public `Coding-Moves/website` repository is connected to Netlify. Netlify builds with `npm run build` and publishes `out`, as configured in `netlify.toml`. Pull requests should receive a deploy preview; merges to `main` update production.
 
-The site was initially deployed with Netlify CLI. In a fresh checkout, sign in to the Coding Moves Netlify team and link the existing site before publishing:
+For a manual deployment from a trusted checkout, sign in to the Coding Moves Netlify team and link the existing site:
 
 ```bash
 npm ci
@@ -60,26 +63,30 @@ netlify link --id d947983b-41e4-4af9-b63b-7a3bc82040cd
 netlify deploy --prod --dir=out
 ```
 
-Netlify reads the exported contact forms during deployment. Follow the notification setup below whenever form fields change. Git-based continuous deployment can be connected when you're ready.
+Netlify reads the exported contact forms during deployment. Verify form detection after changing form fields.
 
 ## Contact form emails
 
-In **Netlify → Forms**, enable form detection, then redeploy. Netlify must parse the new form fields from the deployed HTML.
+The current Netlify site has detected all seven contact forms. If a form is changed, confirm it still appears under **Netlify → Forms** after deployment.
 
-Under **Notifications → Form submission notifications**, add these **Email notification** rules:
+The existing **Notifications → Form submission notifications** rules cover these recipients:
 
 | Send to | Form |
 |---|---|
 | `contactmuawia@gmail.com` | Any form |
 | `contactahmadhassann@gmail.com` | `contact-services` |
 
+Notification subjects are configured in Netlify: “New Coding Moves message” for the owner and “New Services inquiry” for the Services recipient. Keep the forms free of a `subject` field: Netlify includes that field in the email body as well, which repeats the subject line.
+
 The notification comes from Netlify and includes the submitted fields, including the customer's email and phone when provided. Replying to the notification goes to the customer because the form field is named `email`. Check the spam folder for the first notification.
 
 When you buy a domain, add it in Netlify → **Domain management**, then change `SITE_URL` in `src/data/site.ts` and redeploy.
 
-## Before launch checklist
+## Operational checks
 
 - [x] Remove sample projects before launch
-- [x] Set `githubUrl` in `src/data/site.ts`; add an email address there if needed
+- [x] List every organization repository with the correct visibility and section
+- [x] Detect all seven contact forms and configure owner and Services email notifications in Netlify
+- [x] Set `githubUrl` in `src/data/site.ts`; a public email address there is optional
 - [ ] Read every page out loud once. Does it sound like you?
-- [ ] Submit `/sitemap.xml` in Google Search Console after the domain is live
+- [ ] Submit `/sitemap.xml` in Google Search Console when the chosen domain is ready

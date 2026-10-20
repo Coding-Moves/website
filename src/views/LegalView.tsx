@@ -10,7 +10,7 @@ export default function LegalView({ brand, kind }: { brand: Brand; kind: "terms"
         <div className="container">
           <p className="eyebrow">{brand.name}</p>
           <h1>{title}</h1>
-          <p className="notice" role="note"><strong>Draft, not legal advice. Last updated: [TODO]</strong></p>
+          <p className="notice" role="note"><strong>Last updated: 21 October 2026</strong></p>
           <div className="prose legal-copy">
             {brand[kind].map((section) => (
               <section key={section.heading}>

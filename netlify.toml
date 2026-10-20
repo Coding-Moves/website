@@ -5,6 +5,22 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Keep links to product pages that moved to another section working.
+[[redirects]]
+  from = "/products/maya/"
+  to = "/lab/maya/"
+  status = 301
+
+[[redirects]]
+  from = "/products/diskern/"
+  to = "/open-source/diskern/"
+  status = 301
+
+[[redirects]]
+  from = "/products/farm-manager/"
+  to = "/services/dairy-farm/"
+  status = 301
+
 # Existing static pages shadow this rule. Unknown paths keep their brand's 404.
 [[redirects]]
   from = "/:brand/*"
