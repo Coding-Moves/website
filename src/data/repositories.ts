@@ -46,6 +46,13 @@ export const REPOSITORIES: Repository[] = [
     url: "https://github.com/Coding-Moves/maya-assistant",
   },
   {
+    name: "Qirat",
+    title: "Qirat",
+    summary: "Early idea for an AI-assisted Quran memorization companion; no app is built yet.",
+    areas: ["lab"],
+    visibility: "private",
+  },
+  {
     name: "Arion_OS",
     title: "Arion OS",
     summary: "Experimental operating-system development and learning project.",
