@@ -8,6 +8,8 @@ import { CtaBand, PlatformBadges, SampleBadge, StatusBadge } from "@/components/
 
 export default function ProjectView({ brand, project: p }: { brand: Brand; project: Project }) {
   const isService = p.brand === "services" && p.status === "available";
+  const isIdea = p.status === "idea";
+  const featuresHeading = isService ? "What you get" : isIdea ? "What we're exploring" : "What it does";
   const isPrivate = p.brand === "products" && p.platforms?.includes("private");
   const repository = p.repositoryName ? repositoryByName(p.repositoryName) : undefined;
   const contactPath = href(brand, "/contact/");
@@ -51,7 +53,7 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
               )}
               {repository?.visibility === "public" && (
                 <a href={repository.url} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                  View the code
+                  {isIdea ? "View repository" : "View the code"}
                 </a>
               )}
               {isService && (
@@ -108,7 +110,7 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
       <section className="section">
         <div className="container two-col">
           <div className="card">
-            <h3>{isService ? "What you get" : "What it does"}</h3>
+            <h3>{featuresHeading}</h3>
             <ul className="list">
               {p.features.map((f) => (
                 <li key={f}>{f}</li>
