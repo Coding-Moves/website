@@ -104,6 +104,14 @@ export const REPOSITORIES: Repository[] = [
     visibility: "private",
   },
   {
+    name: "docheal",
+    title: "DocHeal",
+    summary: "Early-stage documentation drift project; the first checker is still being designed.",
+    areas: ["lab"],
+    visibility: "public",
+    url: "https://github.com/Coding-Moves/docheal",
+  },
+  {
     name: "30-Days-30-Python-Projects-Beginner-Contributions-Only",
     title: "30 Days, 30 Python Projects",
     summary: "Beginner-friendly community Python challenge. Public code; reuse terms are still being resolved for outside contributions.",

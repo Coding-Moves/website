@@ -321,6 +321,18 @@ export const PROJECTS: Project[] = [
     features: ["Editable story script", "Choice menu example", "Local Ren'Py launch instructions"],
     repositoryName: "Renpy_Sandbox",
   },
+  {
+    slug: "docheal",
+    brand: "lab",
+    name: "DocHeal",
+    status: "idea",
+    summary: "An early project exploring how to spot documentation that may be out of date after code changes.",
+    problem: "Code changes often leave README files, guides and examples describing the old behavior.",
+    vision: "Give maintainers a clear list of documentation worth reviewing when code changes.",
+    idea: "Start with a small local workflow and explain each finding with a reference to the change that raised it. No checker has been built yet.",
+    features: ["First drift case and scope to define", "Local deterministic checker planned", "Evidence-led findings for human review planned"],
+    repositoryName: "docheal",
+  },
   // ───────── Open Source ─────────
   {
     slug: "diskern",
