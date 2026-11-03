@@ -1,6 +1,5 @@
-// Global settings. Change SITE_URL when you buy the domain — everything
-// (canonical links, sitemap, social previews) updates from this one value.
-export const SITE_URL = "https://codingmoves.netlify.app"; // Update when a custom domain is connected.
+// Global settings. Canonical links, sitemap, and social previews use this origin.
+export const SITE_URL = "https://codingmoves.com";
 
 export const SITE = {
   name: "Coding Moves",
