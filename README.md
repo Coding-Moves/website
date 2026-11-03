@@ -52,7 +52,16 @@ public/logos/          ← generated SVG logos (<id>.svg tile, <id>-mark.svg no 
 
 ## Deploy to Netlify
 
-Production site: [codingmoves.netlify.app](https://codingmoves.netlify.app). The public `Coding-Moves/website` repository is connected to Netlify. Netlify builds with `npm run build` and publishes `out`, as configured in `netlify.toml`. Pull requests should receive a deploy preview; merges to `main` update production.
+Production site: [codingmoves.com](https://codingmoves.com). The public `Coding-Moves/website` repository is connected to the existing `codingmoves` Netlify site. Netlify builds with `npm run build` and publishes `out`, as configured in `netlify.toml`. Pull requests receive a deploy preview; merges to `main` update production.
+
+Cloudflare remains the DNS provider. The Netlify site uses `codingmoves.com` as its primary custom domain and redirects `www.codingmoves.com` to it. Configure these Cloudflare records with **DNS only** (gray cloud) so Netlify can provision and renew HTTPS:
+
+| Name | Type | Target |
+|---|---|---|
+| `@` | CNAME (flattened by Cloudflare) | `apex-loadbalancer.netlify.com` |
+| `www` | CNAME | `codingmoves.netlify.app` |
+
+Keep any other DNS records, especially email records, intact. Check both hostnames and the certificate in Netlify Domain management after DNS propagates. The `codingmoves.netlify.app` address remains the Netlify site name for deploy previews and internal access.
 
 For a manual deployment from a trusted checkout, sign in to the Coding Moves Netlify team and link the existing site:
 
@@ -80,7 +89,7 @@ Notification subjects are configured in Netlify: “New Coding Moves message” 
 
 The notification comes from Netlify and includes the submitted fields, including the customer's email and phone when provided. Replying to the notification goes to the customer because the form field is named `email`. Check the spam folder for the first notification.
 
-When you buy a domain, add it in Netlify → **Domain management**, then change `SITE_URL` in `src/data/site.ts` and redeploy.
+`SITE_URL` in `src/data/site.ts` controls canonical links, social previews, the sitemap, and `robots.txt`. Keep it set to the primary production domain.
 
 ## Operational checks
 
