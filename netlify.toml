@@ -5,6 +5,19 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Send old production links to the official domain without affecting deploy previews.
+[[redirects]]
+  from = "http://codingmoves.netlify.app/*"
+  to = "https://codingmoves.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://codingmoves.netlify.app/*"
+  to = "https://codingmoves.com/:splat"
+  status = 301
+  force = true
+
 # Keep links to product pages that moved to another section working.
 [[redirects]]
   from = "/products/maya/"

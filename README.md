@@ -61,7 +61,7 @@ Cloudflare remains the DNS provider. The Netlify site uses `codingmoves.com` as 
 | `@` | CNAME (flattened by Cloudflare) | `apex-loadbalancer.netlify.com` |
 | `www` | CNAME | `codingmoves.netlify.app` |
 
-Keep any other DNS records, especially email records, intact. Check both hostnames and the certificate in Netlify Domain management after DNS propagates. The `codingmoves.netlify.app` address remains the Netlify site name for deploy previews and internal access.
+Keep any other DNS records, especially email records, intact. Check both hostnames and the certificate in Netlify Domain management after DNS propagates. The `codingmoves.netlify.app` name remains the base for deploy previews, while its old production URLs redirect to the official domain.
 
 For a manual deployment from a trusted checkout, sign in to the Coding Moves Netlify team and link the existing site:
 
