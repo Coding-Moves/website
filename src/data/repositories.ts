@@ -90,6 +90,14 @@ export const REPOSITORIES: Repository[] = [
     url: "https://github.com/Coding-Moves/BSAI-Projects",
   },
   {
+    name: "network-security-lab",
+    title: "Network Security Lab",
+    summary: "A step-by-step course in networking and ethical security, with focused lessons and practical exercises.",
+    areas: ["academy", "lab"],
+    visibility: "public",
+    url: "https://github.com/Coding-Moves/network-security-lab",
+  },
+  {
     name: "Linear-Algebra",
     title: "Linear Algebra",
     summary: "Python exercises for matrix operations and AI-related mathematics.",
