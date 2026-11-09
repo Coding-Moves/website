@@ -17,7 +17,7 @@ export function pageMeta(opts: {
     description,
     alternates: { canonical: path },
     icons: {
-      icon: `/favicons/${brand.id}.svg`,
+      icon: brand.id === "main" ? "/favicon.ico" : `/favicons/${brand.id}.svg`,
       apple: brand.id === "main" ? "/apple-touch-icon.png" : `/logos/${brand.id}.svg`,
     },
     openGraph: {
