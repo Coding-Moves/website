@@ -1,52 +1,5 @@
 @import "@fontsource-variable/inter";
-@import "@fontsource-variable/space-grotesk";
-
-/* ───── Design tokens (from the brand board) ───── */
-:root {
-  --bg: #0b1220;
-  --bg-2: #0f1a2e;
-  --surface: rgba(255, 255, 255, 0.035);
-  --surface-2: rgba(255, 255, 255, 0.06);
-  --border: rgba(148, 163, 184, 0.16);
-  --border-strong: rgba(148, 163, 184, 0.28);
-  --text: #e5e7eb;
-  --text-2: #94a3b8;
-  --heading: #f8fafc;
-  --grid: rgba(148, 163, 184, 0.06);
-  --shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.8);
-
-  /* each brand overrides these on its wrapper */
-  --accent: #3b82f6;
-  --accent-text: #7dd3fc;
-
-  --radius: 18px;
-  --radius-sm: 12px;
-  --maxw: 1160px;
-  --font-body: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-head: "Space Grotesk Variable", var(--font-body);
-  color-scheme: dark;
-}
-
-:root[data-theme="light"] {
-  --bg: #f8fafc;
-  --bg-2: #eef2f7;
-  --surface: #ffffff;
-  --surface-2: #f1f5f9;
-  --border: rgba(15, 23, 42, 0.1);
-  --border-strong: rgba(15, 23, 42, 0.2);
-  --text: #1e293b;
-  --text-2: #64748b;
-  --heading: #0f172a;
-  --grid: rgba(15, 23, 42, 0.045);
-  --shadow: 0 20px 50px -30px rgba(15, 23, 42, 0.35);
-  color-scheme: light;
-}
-.brand-scope {
-  --accent-text: var(--accent-soft);
-}
-:root[data-theme="light"] .brand-scope {
-  --accent-text: var(--accent-deep);
-}
+@import "../styles/tokens.css";
 
 *,
 *::before,
