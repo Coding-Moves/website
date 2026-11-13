@@ -66,7 +66,7 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
           </div>
           {p.brand === "services" && (
             <div className="hero-art">
-              <img src={logoSrc(brand)} alt={`${brand.name} logo`} width={360} height={360} />
+              <img src={logoSrc(brand, true)} alt={`${brand.name} logo`} width={360} height={360} />
             </div>
           )}
         </div>
