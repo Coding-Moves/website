@@ -167,8 +167,8 @@ export default function HomeView({ brand }: { brand: Brand }) {
                   <p>{repository.summary}</p>
                   {project && <Link className="card-more" href={href(getBrand(project.brand)!, `/${project.slug}/`)}>Read overview →</Link>}
                   {repository.visibility === "public" ? (
-                    <a className="card-more" href={repository.url} target="_blank" rel="noopener noreferrer">
-                      View repository ↗
+                    <a className="card-more" href={project?.demoUrl ?? repository.url} target="_blank" rel="noopener noreferrer">
+                      {project?.demoUrl ? "Visit live site ↗" : "View repository ↗"}
                     </a>
                   ) : (
                     <p className="repository-private" role="note">Only the owner can see this repository.</p>
