@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { href, logoSrc, type Brand } from "@/data/brands";
+import { href, type Brand } from "@/data/brands";
 import type { Project } from "@/data/projects";
 import { repositoryByName } from "@/data/repositories";
 import BrandShell from "@/components/BrandShell";
+import HeroCard from "@/components/HeroCard";
 import SubBrandLink from "@/components/SubBrandLink";
 import { CtaBand, PlatformBadges, SampleBadge, StatusBadge } from "@/components/Bits";
 
@@ -65,9 +66,7 @@ export default function ProjectView({ brand, project: p }: { brand: Brand; proje
             {repository?.visibility === "private" && <p className="notice" role="note">Only the owner can see this repository.</p>}
           </div>
           {p.brand === "services" && (
-            <div className="hero-art">
-              <img src={logoSrc(brand, true)} alt={`${brand.name} logo`} width={360} height={360} />
-            </div>
+            <HeroCard brand={brand} />
           )}
         </div>
       </section>

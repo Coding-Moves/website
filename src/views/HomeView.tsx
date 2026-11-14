@@ -5,6 +5,7 @@ import { projectForRepository, projectsFor } from "@/data/projects";
 import { repositoriesFor } from "@/data/repositories";
 import { SITE, SITE_URL } from "@/data/site";
 import BrandShell from "@/components/BrandShell";
+import HeroCard from "@/components/HeroCard";
 import SubBrandLink, { NewTabIndicator } from "@/components/SubBrandLink";
 import { CtaBand, InProgressNotice, ProjectCard } from "@/components/Bits";
 
@@ -49,9 +50,7 @@ export default function HomeView({ brand }: { brand: Brand }) {
             </div>
             <InProgressNotice brand={brand} />
           </div>
-          <div className="hero-art">
-            <img src={logoSrc(brand, true)} alt={`${brand.name} logo`} width={360} height={360} />
-          </div>
+          <HeroCard brand={brand} />
         </div>
       </section>
 
