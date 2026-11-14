@@ -1,0 +1,76 @@
+@import "@fontsource-variable/fraunces";
+
+/* The visual system lives here so the two display modes stay in sync. */
+:root {
+  --paper: #dfe9f4;
+  --grid: #bccfe3;
+  --card: #f7faff;
+  --ink: #10233f;
+  --ink-soft: #4a5f7a;
+  --cobalt: #2340e8;
+  --amber: #ffb224;
+  --ok: #0e9f6e;
+  --bad: #d6336c;
+  --button-ink: #000000;
+
+  --bg: var(--paper);
+  --bg-2: #cfdeee;
+  --surface: var(--card);
+  --surface-2: #e8f0f8;
+  --border: var(--ink);
+  --border-strong: var(--ink);
+  --text: var(--ink);
+  --text-2: var(--ink-soft);
+  --heading: var(--ink);
+
+  --accent: var(--cobalt);
+  --accent-text: var(--ink);
+  --on-accent: #ffffff;
+
+  --border-width: 2px;
+  --radius: 10px;
+  --radius-sm: 6px;
+  --shadow-offset: 6px;
+  --shadow-offset-mobile: 4px;
+  --hard-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--ink);
+  --maxw: 1160px;
+  --font-body: "Inter Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: "Fraunces Variable", Georgia, "Times New Roman", serif;
+  --font-code: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --paper: #0b1a33;
+  --grid: rgb(169 205 247 / 18%);
+  --card: #10264a;
+  --ink: #e6eefc;
+  --ink-soft: #b8c9e3;
+  --cobalt: #8ea2ff;
+  --amber: #ffc24d;
+  --ok: #4bd5a3;
+  --bad: #ff86ad;
+
+  --bg: var(--paper);
+  --bg-2: #0d2140;
+  --surface: var(--card);
+  --surface-2: #17335d;
+  --border: var(--ink);
+  --border-strong: var(--ink);
+  --text: var(--ink);
+  --text-2: var(--ink-soft);
+  --heading: var(--ink);
+  --accent: var(--cobalt);
+  --accent-text: var(--ink);
+  --on-accent: #0b1a33;
+  color-scheme: dark;
+}
+
+.brand-scope {
+  /* Deepened against ink so small accent labels meet AA on paper. */
+  --accent-text: color-mix(in srgb, var(--accent-deep) 75%, var(--ink));
+}
+
+:root[data-theme="dark"] .brand-scope {
+  --accent-text: var(--accent-soft);
+}
