@@ -100,7 +100,7 @@ main { flex: 1; }
 
 /* Hero */
 .hero { padding: 72px 0 56px; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr); align-items: center; gap: clamp(28px, 5vw, 56px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.8fr); align-items: start; gap: clamp(28px, 5vw, 56px); }
 .hero-grid > :first-child {
   position: relative; padding: clamp(24px, 4vw, 42px); border: var(--border-width) solid var(--ink);
   background: var(--card); box-shadow: var(--hard-shadow); animation: settle 540ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
@@ -116,7 +116,7 @@ main { flex: 1; }
 .hero-index-card {
   position: relative; width: min(330px, 100%); justify-self: center; padding: 28px 24px 22px;
   border: var(--border-width) solid var(--ink); border-radius: var(--radius); background: var(--card);
-  box-shadow: var(--hard-shadow); transform: rotate(1deg);
+  box-shadow: var(--hard-shadow); transform: rotate(0.5deg);
 }
 .hero-index-card::before {
   position: absolute; top: -13px; left: 42px; width: 104px; height: 25px;
@@ -133,8 +133,8 @@ main { flex: 1; }
   display: inline-grid; width: 16px; height: 16px; flex: none; place-items: center; margin-top: 3px;
   border: var(--border-width) solid var(--ink); background: var(--accent); color: #10233f; content: "✓"; font-size: 12px; line-height: 1;
 }
-.hero-index-card-link { display: inline-flex; color: var(--ink-soft); font-family: var(--font-code); font-size: 13px; font-weight: 700; text-decoration: none; }
-.hero-index-card-link:hover { color: var(--accent-text); text-decoration: underline; text-decoration-thickness: 2px; }
+.hero-index-card-link { display: inline-flex; color: var(--accent-text); font-family: var(--font-code); font-size: 15px; font-weight: 700; text-decoration: none; }
+.hero-index-card-link:hover { text-decoration: underline; text-decoration-thickness: 2px; }
 @keyframes settle { from { opacity: 0; transform: translateY(14px) rotate(-0.7deg); } }
 
 /* Sections and cards */
