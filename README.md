@@ -78,11 +78,11 @@ Netlify reads the exported contact forms during deployment. Verify form detectio
 
 The current Netlify site has detected all seven contact forms. If a form is changed, confirm it still appears under **Netlify → Forms** after deployment.
 
-The existing **Notifications → Form submission notifications** rules cover these recipients:
+Set the **Notifications → Form submission notifications** rules to these recipients:
 
 | Send to | Form |
 |---|---|
-| `contactmuawia@gmail.com` | Any form |
+| `contact@codingmoves.com` | Any form |
 | `contactahmadhassann@gmail.com` | `contact-services` |
 
 Notification subjects are configured in Netlify: “New Coding Moves message” for the owner and “New Services inquiry” for the Services recipient. Keep the forms free of a `subject` field: Netlify includes that field in the email body as well, which repeats the subject line.
