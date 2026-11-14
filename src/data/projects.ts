@@ -259,6 +259,7 @@ export const PROJECTS: Project[] = [
     idea: "Explore a personal assistant that processes selected messages with the user's permission.",
     features: ["WhatsApp message processing prototype", "Personal assistant experiments", "Reminder workflow planned"],
     repositoryName: "maya-assistant",
+    demoUrl: "https://maya.codingmoves.com/",
   },
   {
     slug: "arion-os",
