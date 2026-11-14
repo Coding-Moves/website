@@ -94,8 +94,7 @@ main { flex: 1; }
 .btn:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--ink); }
 .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--ink); }
 .btn-primary {
-  /* A contrast-safe ink mix retains the brand hue while keeping labels AA. */
-  background: color-mix(in srgb, var(--accent) 55%, #000); color: #fff;
+  background: var(--accent); color: var(--button-ink);
 }
 .btn-ghost { background: var(--card); color: var(--ink); }
 
