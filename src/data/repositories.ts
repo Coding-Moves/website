@@ -31,6 +31,14 @@ export const REPOSITORIES: Repository[] = [
     url: "https://github.com/Coding-Moves/diskern",
   },
   {
+    name: "awaaz",
+    title: "Awaaz",
+    summary: "Open-source, privacy-first read-aloud web app for text and ebooks, with natural speech and no sign-up.",
+    areas: ["open-source"],
+    visibility: "public",
+    url: "https://github.com/Coding-Moves/awaaz",
+  },
+  {
     name: "dairy-farm",
     title: "Dairy Farm",
     summary: "Client-paid farm management service. Production data and source remain private.",
