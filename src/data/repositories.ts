@@ -26,7 +26,7 @@ export const REPOSITORIES: Repository[] = [
     name: "diskern",
     title: "Diskern",
     summary: "Desktop disk cleaner with evidence-based findings and reviewable cleanup.",
-    areas: ["open-source"],
+    areas: ["open-source", "products"],
     visibility: "public",
     url: "https://github.com/Coding-Moves/diskern",
   },

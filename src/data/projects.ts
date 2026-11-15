@@ -26,6 +26,7 @@ interface ProjectBase {
   slug: string; // must not be "about" or "contact"
   name: string;
   status: ProjectStatus;
+  secondaryAreas?: BrandId[]; // extra catalog homes; the primary brand owns the canonical project route
   summary: string; // one line for cards and SEO
   problem: string; // what's hard today
   vision: string; // where this is going
@@ -353,6 +354,7 @@ export const PROJECTS: Project[] = [
     brand: "open-source",
     name: "Awaaz",
     status: "live",
+    secondaryAreas: ["products"],
     summary: "A privacy-first, open-source read-aloud web app for text and ebooks, with no sign-up required.",
     problem: "Long text and ebooks can be difficult to get through when reading is not practical or comfortable.",
     vision: "Make listening to personal text and books simple without sending them to a server.",
@@ -426,7 +428,7 @@ export const PROJECTS: Project[] = [
 ];
 
 export function projectsFor(brand: BrandId): Project[] {
-  return PROJECTS.filter((p) => p.brand === brand);
+  return PROJECTS.filter((p) => p.brand === brand || p.secondaryAreas?.includes(brand));
 }
 
 export function getProject(brand: BrandId, slug: string): Project | undefined {
