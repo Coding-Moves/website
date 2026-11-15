@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Brand } from "@/data/brands";
-import { href, logoSrc } from "@/data/brands";
+import { getBrand, href, logoSrc } from "@/data/brands";
 import { STATUS_LABEL, type ProductPlatform, type Project } from "@/data/projects";
 
 const PLATFORM_LABEL: Record<ProductPlatform, string> = {
@@ -35,8 +35,9 @@ export function InProgressNotice({ brand }: { brand: Brand }) {
 }
 
 export function ProjectCard({ brand, project }: { brand: Brand; project: Project }) {
+  const projectBrand = getBrand(project.brand) ?? brand;
   return (
-    <Link href={href(brand, `/${project.slug}/`)} className="card">
+    <Link href={href(projectBrand, `/${project.slug}/`)} className="card">
       {project.brand === "services" && (
         <img className="service-card-logo" src={logoSrc(brand)} alt="" width={64} height={64} loading="lazy" />
       )}
