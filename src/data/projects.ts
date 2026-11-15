@@ -26,6 +26,7 @@ interface ProjectBase {
   slug: string; // must not be "about" or "contact"
   name: string;
   status: ProjectStatus;
+  secondaryAreas?: BrandId[]; // extra catalog homes; the primary brand owns the canonical project route
   summary: string; // one line for cards and SEO
   problem: string; // what's hard today
   vision: string; // where this is going
@@ -349,6 +350,20 @@ export const PROJECTS: Project[] = [
     demoUrl: "https://coding-moves.github.io/diskern/",
   },
   {
+    slug: "awaaz",
+    brand: "open-source",
+    name: "Awaaz",
+    status: "live",
+    secondaryAreas: ["products"],
+    summary: "A privacy-first, open-source read-aloud web app for text and ebooks, with no sign-up required.",
+    problem: "Long text and ebooks can be difficult to get through when reading is not practical or comfortable.",
+    vision: "Make listening to personal text and books simple without sending them to a server.",
+    idea: "Run natural-sounding speech in the browser, with built-in browser voices as a fallback, while keeping files and reading position on the device.",
+    features: ["Paste text or open PDF, EPUB and TXT files", "Natural speech with browser-voice fallback", "No account, backend or database", "On-device reading position and file storage"],
+    repositoryName: "awaaz",
+    demoUrl: "https://awaaz.codingmoves.com/",
+  },
+  {
     slug: "python-challenge",
     brand: "open-source",
     name: "30 Days, 30 Python Projects",
@@ -413,7 +428,7 @@ export const PROJECTS: Project[] = [
 ];
 
 export function projectsFor(brand: BrandId): Project[] {
-  return PROJECTS.filter((p) => p.brand === brand);
+  return PROJECTS.filter((p) => p.brand === brand || p.secondaryAreas?.includes(brand));
 }
 
 export function getProject(brand: BrandId, slug: string): Project | undefined {
